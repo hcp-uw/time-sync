@@ -22,6 +22,7 @@ function App() {
     <>
       <h1>Hello, HCP. We are going to sync you in places you did not know before.</h1>
       <p>{message}</p>
+
     </>
   );
 }
