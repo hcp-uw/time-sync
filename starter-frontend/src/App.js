@@ -20,8 +20,9 @@ function App() {
   console.log(message);
   return (
     <>
-      <h1>Hello, HCP. We are going to sync you in places you did not know.</h1>
+      <h1>Hello, HCP. We are going to sync you in places you did not know before.</h1>
       <p>{message}</p>
+
     </>
   );
 }
