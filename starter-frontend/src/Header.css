@@ -1,38 +1,51 @@
 /* Style the header with a grey background and some padding */
 .header {
-    overflow: hidden;
+    overflow: auto;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
     background-color: #b479ff;
-    padding: 20px 10px;
+    text-align: center;
+  }
+
+  li {
+    display: inline;
   }
   
-  /* Style the header links 
+  /* Style the header links */
   .header a {
-    float: left;
     color: white;
     text-align: center;
     padding: 12px;
     text-decoration: none;
-    font-size: 18px;
     line-height: 25px;
     border-radius: 4px;
+    display: inline-block;
   }
   
   /* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
   .header a.title {
-    font-size: 25px;
+    float: left;
+    font-size: 45px;
     font-weight: bold;
     font-family: 'Pacifico' ;
   }
   
   /* Change the background color on mouse-over */
-  /* .header a:hover {
-    background-color: #ddd;
-    color: black;
-  } */
+  .header a:visited {
+    font-weight: bold;
+  }
+
+  .header-right {
+    text-align: center;
+}
   
   /* Float the link section to the right */
-  .header-right {
-    float: right;
+  .header a.tabs {
+    text-align: center;
+    font-size: 40px;
+    font-family: 'Nunito';
+    margin: 0 auto;
   }
   
   /* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */

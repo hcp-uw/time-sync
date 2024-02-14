@@ -2,13 +2,11 @@ import './Header.css';
 
 function Header() {
     return (
-        <div class="header">
-        <a href="#default" class="title">TimeSync</a>
-        <div class="header-right">
-            <a href="#join">Join</a>
-            <a href="#create">Create</a>
-        </div>
-        </div>
+        <ul class="header">
+            <li><a href="default.asp" class="title">TimeSync</a></li>
+            <li><a href="news.asp" class="tabs">Join</a></li>
+            <li><a href="contact.asp" class="tabs">Create</a></li>
+        </ul>
     );
 }
 
