@@ -47,6 +47,13 @@
     font-family: 'Nunito';
     margin: 0 auto;
   }
+
+  /* Defines the size of the logo for the join and create images*/
+  .logo {
+    margin-top: 12px;
+    width: 37px;
+    height: 37px;
+  }
   
   /* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
   @media screen and (max-width: 500px) {

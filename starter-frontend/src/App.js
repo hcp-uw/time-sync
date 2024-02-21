@@ -1,10 +1,18 @@
 import './App.css';
+
+import Join from './pages/Join';
+import Create from './pages/Create';
+
+import { Route, Routes } from 'react-router-dom';
+
+import React from 'react';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 const baseURL = 'http://localhost:3001';
 
 function App() {
+  // My guess/interpretation is this is for linking with backend and fetching data
   const [message, setMessage] = useState('');
 
   useEffect(() => {
@@ -18,13 +26,21 @@ function App() {
   }, []); 
 
   console.log(message);
+
+  // Here begins actual front end
+
+
   return (
     <>
-      <h1>Hello, HCP. We are going to sync you in places you did not know before.</h1>
-      <p>{message}</p>
-
+      <Routes>
+        <Route path="/" element={<Join />} /> 
+        <Route path="/join" element={<Join />} />
+        <Route path="/create" element={<Create />} />
+      </Routes>
     </>
   );
 }
 
 export default App;
+
+
