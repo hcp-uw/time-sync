@@ -1,0 +1,5 @@
+.allBody {
+    background-color: #8C33FF;
+    height: calc(100vh);
+    overflow: auto;
+}
