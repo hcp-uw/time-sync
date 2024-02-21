@@ -1,0 +1,39 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Horizontally center the box */
+    align-items: center; /* Vertically center the box */
+    height: 50vh;
+  }
+  
+  .box {
+    width: 480px; /* Set desired width of the box */
+    height: 190px; /* Set desired height of the box */
+    background-color: rgba(0, 0, 0, 0.16); /* Set background color */
+    border: 5px solid #5700C7; /* Optional: Add border */
+    border-radius: 15px;
+    display: flex; /* Use Flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center;
+  }
+
+  .sync_title {
+    font-family: 'Preahvihear';
+    font-size: 30pt;
+  }
+
+  .sync_code_box {
+    width: 380px; /* Set width as needed */
+    height: 60px; /* Set height as needed */
+    padding-top: 10px; 
+    border: 4px solid #4E4E4E; /* Add border for the box */
+    background-color: #FFFFFF;
+    border-radius: 15px; /* Add border radius for rounded corners */
+    outline: none; /* Remove default outline */
+  }
+
+  .sync_code_box::placeholder {
+    font-size: 30px; /* Set font size for text */
+    color: rgba(0, 0, 0, 0.3);
+    text-align: center;
+  }
