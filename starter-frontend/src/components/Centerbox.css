@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center; /* Horizontally center the box */
     align-items: center; /* Vertically center the box */
-    height: 50vh;
+    height: 80vh;
   }
   
   .box {
@@ -19,13 +19,16 @@
 
   .sync_title {
     font-family: 'Preahvihear';
-    font-size: 30pt;
+    font-size: 40pt;
+    color: #FFFFFF;
+    font-weight: 100;
+    margin: 0;
   }
 
   .sync_code_box {
     width: 380px; /* Set width as needed */
     height: 60px; /* Set height as needed */
-    padding-top: 10px; 
+    /* padding-top: 10px;  */
     border: 4px solid #4E4E4E; /* Add border for the box */
     background-color: #FFFFFF;
     border-radius: 15px; /* Add border radius for rounded corners */
@@ -36,4 +39,14 @@
     font-size: 30px; /* Set font size for text */
     color: rgba(0, 0, 0, 0.3);
     text-align: center;
+    font-family: 'Quattrocento Sans';
+    font-weight: 501;
   }
+
+  
+  input[type="text"] {
+    font-size: 30px; /* Set the font size to 16 pixels */
+    text-align: center;
+    font-family: 'Quattrocento Sans';
+    font-weight: 501;
+}

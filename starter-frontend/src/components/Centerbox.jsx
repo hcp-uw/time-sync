@@ -5,7 +5,7 @@ function Centerbox() {
         <div class="container">
             <h2 class="sync_title"> Let's Sync it up!</h2>
             <div class="box">
-                <input type="text" class="sync_code_box" placeholder="Sync Code"></input>
+                <input type="text" class="sync_code_box" placeholder="Sync Code" readonly></input>
             </div>
         </div>
     );
