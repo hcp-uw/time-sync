@@ -1,4 +1,4 @@
-import './App.css';
+import styles from './App.css';
 
 import Join from './pages/Join';
 import Create from './pages/Create';
