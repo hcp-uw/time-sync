@@ -1,11 +1,13 @@
 import Head from '../components/Head';
-import Body from '../components/Body';
+import Header from '../components/Header';
+import JoinBox from '../components/JoinBox';
 
 function Create() {
     return (
         <>
             <Head />
-            <Body />
+            <Header />
+            <JoinBox />
         </>
     )
 }

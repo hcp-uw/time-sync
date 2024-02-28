@@ -1,8 +1,5 @@
-//import './Header.css';
-import './navbar.css';
+import styles from './navbar.css';
 import { Link } from 'react-router-dom';
-// <img className="logo" src={joinImage} alt="Join" />
-// <img className="logo" src={createImage} alt="Create" />
 
 import joinImage from '../images/joinImage.png';
 import createImage from '../images/createImage.png';
