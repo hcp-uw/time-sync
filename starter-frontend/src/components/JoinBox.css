@@ -68,8 +68,64 @@ input.sync_code_box[type="text"] {
   text-decoration: none;
 }
 
+
 .allBody {
+  z-index: 5;
   background-color: #8C33FF;
   height: calc(100vh);
-  overflow: auto;
+  overflow: hidden;
+  position: relative;
+  /* position: absolute; */
+}
+
+.blob1 {
+  z-index: -1;
+  overflow: hidden;
+  position: absolute;
+  overflow: hidden;
+  right: 0px;
+  top: 0px
+}
+
+.blob2 {
+  z-index: -1;
+  overflow: hidden;
+  position: absolute;
+  overflow: hidden;
+  right: -250px;
+  top: -100px
+}
+
+.blob3 {
+  z-index: -1;
+  overflow: hidden;
+  position: absolute;
+  overflow: hidden;
+  left: 0px;
+  top: 0px;
+  height: 800px;
+  width: auto;
+}
+
+.blob4 {
+  z-index: -5;
+  overflow: hidden;
+  position: absolute;
+  overflow: hidden;
+  right: 0px;
+  top: -100px;
+  width: 1600px;
+  transform: rotate(15deg);
+}
+
+.blob5 {
+  z-index: -1;
+  overflow: hidden;
+  position: absolute;
+  overflow: hidden;
+  left: -200px;
+  top: 200px;
+  height: 800px;
+  width: auto;
+  transform: rotate(-20deg);
 }

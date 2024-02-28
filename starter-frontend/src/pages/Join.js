@@ -6,7 +6,6 @@ function Create() {
     return (
         <>
             <Head />
-            <Header />
             <JoinBox />
         </>
     )

@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import './JoinBox.css';
 import Header from '../components/Header'
+import blob1 from '../images/Purple blob.png';
+import blob2 from '../images/Green blob.png';
+import blob3 from '../images/Purple blob 2.png';
+import blob4 from '../images/Purple blob 3.png';
+import blob5 from '../images/Green blob 2.png';
 
 function JoinBox() {
     /*
@@ -48,6 +53,7 @@ function JoinBox() {
     return (
         // Div for the entire page besides header
         <div className="allBody">
+            <Header />
             {/* Text at top of page */}
             <t>Join Page</t>
             {/* Div for overall centered box */}
@@ -73,6 +79,11 @@ function JoinBox() {
                 )}
                 
             </div>
+            <img class="blob1" src={blob1}/>
+            <img class="blob2" src={blob2}/>
+            <img class="blob3" src={blob3}/>
+            <img class="blob4" src={blob4}/>
+            <img class="blob5" src={blob5}/>
         </div>
         
     );
