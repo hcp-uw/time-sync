@@ -7,7 +7,7 @@ import blob3 from '../images/Purple blob 2.png';
 import blob4 from '../images/Purple blob 3.png';
 import blob5 from '../images/Green blob 2.png';
 
-function JoinBox() {
+function CreateBox() {
     /*
     State variable to hold the input value (holds the "state" of the input
     must have setInputValue to update the state, is a react thing)
@@ -53,7 +53,6 @@ function JoinBox() {
         }
     };
 
-
     return (
         // Div for entire page minus header, will inherit background color
         <div className="allBody">
@@ -82,4 +81,4 @@ function JoinBox() {
     );
 }
 
-export default JoinBox
+export default CreateBox
