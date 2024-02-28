@@ -29,7 +29,6 @@ function App() {
 
   // Here begins actual front end
 
-
   return (
     <>
       <Routes>

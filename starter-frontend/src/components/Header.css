@@ -4,13 +4,23 @@
     list-style-type: none;
     margin: 0;
     padding: 0;
-    background-color: #b479ff;
+    /* background-color: #b479ff; */
     text-align: center;
+  }
+
+  .nav{
+    text-align: center;
+  }
+
+  ul {
+    display: inline-block; /* Make the ul a block element */
+    padding: 0; /* Remove default padding */
   }
 
   li {
     display: inline;
     font-family: 'Nunito';
+    margin: 0 10px;
   }
   
   /* Style the header links */
