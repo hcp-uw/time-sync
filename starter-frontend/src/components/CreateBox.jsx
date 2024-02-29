@@ -17,6 +17,7 @@ function CreateBox() {
     const [showName, setShowName] = useState(true);
     const [eventName, setEventNameValue] = useState('');
     const [showEventName, setShowEventName] = useState(false);
+    const [animateNameBox, setAnimateNameBox] = useState(false);
 
     // NEED TO FIGURE OUT EVENT HANDLER FOR NEXT BUTTON
 
@@ -36,8 +37,13 @@ function CreateBox() {
         if (showName) {
             // Checks for the name entered
             if (name.length > 0) {
-                setShowName(false);
-                setShowEventName(true);
+                setAnimateNameBox(true);
+                setTimeout(() => {
+                    setShowName(false);
+                    setShowEventName(true);
+                }, 500);
+                // setShowName(false);
+                // setShowEventName(true);
             } else {
                 alert("Please enter a name of at least 1 character");
             }  
@@ -61,11 +67,11 @@ function CreateBox() {
 
             <div class="container">
                 {showName && (
-                    <input type="text" class="name_enter_box" placeholder="Your Name" readonly onChange={handleNameChange}></input>
+                    <input type="text" class={`name_enter_box ${animateNameBox ? 'transition_animation_out' : ''}`} placeholder="Your Name" readonly onChange={handleNameChange}></input>
                 )}
 
                 {showEventName && (
-                    <input type="text" class="name_enter_box" placeholder="Event Name" readonly onChange={handleEventNameChange}></input>
+                    <input type="text" class={`name_enter_box ${animateNameBox ? 'transition_animation_in' : ''}`} placeholder="Event Name" readonly onChange={handleEventNameChange}></input>
                 )}
 
 

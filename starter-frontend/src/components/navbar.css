@@ -7,19 +7,21 @@ body {
 }
 
 nav {
-    background-color: #b479ff;
+    background-color: rgba(255, 255, 255, .43);
     color: white;
     display: flex;
-    align-items: stretch;
     gap: 2rem;
     padding: 0 1rem;
     align-items: center;
+    border-bottom: 2px solid white;
+    height: 8vh;
 }
 
 nav .title {
     font-size: 2rem;
     font-family: 'Pacifico' ;
     float: left;
+    font-size: 40px;
 }
 
 nav ul {
@@ -52,10 +54,11 @@ nav li:hover {
 
 li {
     font-family: 'Nunito';
-    font-size: 18pt;
+    font-size: 24pt;
+    font-weight: 100;
 }
 
 .logo {
-    width: 37px;
-    height: 37px;
+    width: 47px;
+    height: 47px;
   }

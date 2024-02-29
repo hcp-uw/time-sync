@@ -53,6 +53,34 @@ input.name_enter_box[type="text"] {
   text-decoration: none;
 }
 
+
+@keyframes slideOut{
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-200%);
+  }
+}
+
+@keyframes slideIn{
+  0% {
+    transform: translateX(200%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.transition_animation_out {
+  animation: slideOut 0.5s ease-in-out forwards;
+}
+
+.transition_animation_in {
+  animation: slideIn 0.5s ease-in-out forwards;
+}
+
+
 .allBody {
   z-index: 5;
   background-color: #8C33FF;
