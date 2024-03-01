@@ -1,5 +1,6 @@
-import styles from './navbar.css';
-import { Link } from 'react-router-dom';
+import styles from './navbar.css';  
+import { Link, NavLink } from 'react-router-dom';
+
 
 import joinImage from '../images/joinImage.png';
 import createImage from '../images/createImage.png';
@@ -11,12 +12,12 @@ function Header() {
             <ul>
                 <img className="logo" src={joinImage} alt="Join" />
                 <li>
-                    <Link to="/join">Join</Link>
+                    <NavLink to="/join">Join</NavLink>
                 </li>
 
                 <img className="logo" src={createImage} alt="Create" />
                 <li>
-                    <Link to="/create">Create</Link>
+                    <NavLink to="/create">Create</NavLink>
                 </li>
             </ul>
         </nav>

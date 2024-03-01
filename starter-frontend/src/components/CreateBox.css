@@ -1,58 +1,143 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Horizontally center the box */
-    align-items: center; /* Vertically center the box */
-    height: 80vh;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Horizontally center the box */
+  align-items: center; /* Vertically center the box */
+  height: 80vh;
+}
 
-  .name_enter_box {
-    height: 90px;
-    width: 480px;
-    background-color: rgba(0, 0, 0, 0.16); /* Set background color */
-    display: flex;
-    border-radius: 15px; /* Add border radius for rounded corners */
-    outline: none; /* Remove default outline */
-    border: none;
-    border-bottom: 5px solid #5700C7;
-  }
+.name_enter_box {
+  height: 90px;
+  width: 480px;
+  background-color: rgba(0, 0, 0, 0.16); /* Set background color */
+  display: flex;
+  border-top-left-radius: 15px; /* Add border radius for rounded corners */
+  border-top-right-radius: 15px;
+  outline: none; /* Remove default outline */
+  border: none;
+  border-bottom: 5px solid #5700C7;
+}
 
-  .name_enter_box::placeholder {
-    font-size: 30px; /* Set font size for text */
-    color: rgba(255, 255, 255, 0.3);
-    padding-left: 10px;
-    text-align: left;
-    font-family: 'Quattrocento Sans';
-    font-weight: 700;
+.name_enter_box::placeholder {
+  font-size: 45px; /* Set font size for text */
+  color: rgba(255, 255, 255, 0.3);
+  padding-left: 0px;
+  text-align: left;
+  font-family: 'Quattrocento Sans';
+  font-weight: 700;
+}
+    
+input.name_enter_box[type="text"] {
+  font-size: 45px; /* Set the font size to 16 pixels */
+  text-align: left;
+  padding-left: 15px;
+  font-family: 'Quattrocento Sans';
+  font-weight: 501;
+  color: white;
+}
+
+.next_button {
+  width: 300px; /* Set width as needed */
+  height: 60px; /* Set height as needed */
+  margin-top: 25px;
+  border: 4px solid #4E4E4E; /* Add border for the box */
+  background-color: #4E4E4E;
+  border-radius: 15px; /* Add border radius for rounded corners */
+  outline: none; /* Remove default outline */
+
+  font-family: 'Quattrocento Sans';
+  font-size: 40px;
+  color: #FFFFFF;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+}
+
+
+@keyframes slideOut{
+  0% {
+    transform: translateX(0);
   }
-      
-  input.name_enter_box[type="text"] {
-    font-size: 30px; /* Set the font size to 16 pixels */
-    text-align: center;
-    font-family: 'Quattrocento Sans';
-    font-weight: 501;
-    color: white;
+  100% {
+    transform: translateX(-200%);
   }
-  
-  .next_button {
-    width: 300px; /* Set width as needed */
-    height: 60px; /* Set height as needed */
-    margin-top: 25px;
-    border: 4px solid #4E4E4E; /* Add border for the box */
-    background-color: #4E4E4E;
-    border-radius: 15px; /* Add border radius for rounded corners */
-    outline: none; /* Remove default outline */
-  
-    font-family: 'Quattrocento Sans';
-    font-size: 40px;
-    color: #FFFFFF;
-    font-weight: 700;
-    text-align: center;
-    text-decoration: none;
+}
+
+@keyframes slideIn{
+  0% {
+    transform: translateX(200%);
   }
-  
-  .allBody {
-    background-color: #8C33FF;
-    height: calc(100vh);
-    overflow: auto;
+  100% {
+    transform: translateX(0);
   }
+}
+
+.transition_animation_out {
+  animation: slideOut 0.5s ease-in-out forwards;
+}
+
+.transition_animation_in {
+  animation: slideIn 0.5s ease-in-out forwards;
+}
+
+
+.allBody {
+  z-index: 5;
+  background-color: #8C33FF;
+  height: calc(100vh);
+  overflow: hidden;
+  position: relative;
+  /* position: absolute; */
+}
+
+.blob1 {
+  z-index: -1;
+  overflow: hidden;
+  position: absolute;
+  overflow: hidden;
+  right: -50px;
+  top: 0px
+}
+
+.blob2 {
+  z-index: -1;
+  overflow: hidden;
+  position: absolute;
+  overflow: hidden;
+  right: -250px;
+  top: -100px
+}
+
+.blob3 {
+  z-index: -1;
+  overflow: hidden;
+  position: absolute;
+  overflow: hidden;
+  left: 0px;
+  top: 0px;
+  height: 800px;
+  width: auto;
+}
+
+.blob4 {
+  z-index: -3;
+  overflow: hidden;
+  position: absolute;
+  overflow: hidden;
+  right: 0px;
+  top: -100px;
+  width: 1600px;
+  transform: rotate(15deg);
+}
+
+.blob5 {
+  z-index: -1;
+  overflow: hidden;
+  position: absolute;
+  overflow: hidden;
+  left: -200px;
+  top: 200px;
+  height: 800px;
+  width: auto;
+  transform: rotate(-20deg);
+}

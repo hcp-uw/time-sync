@@ -68,8 +68,117 @@ input.sync_code_box[type="text"] {
   text-decoration: none;
 }
 
+
 .allBody {
+  z-index: 5;
   background-color: #8C33FF;
   height: calc(100vh);
-  overflow: auto;
+  overflow: hidden;
+  position: relative;
+  /* position: absolute; */
+  /* animation-name: example;
+  animation-duration: 4s; */
+}
+
+/* test animation : worked! */
+/* @keyframes example {
+  from {background-color: #8C33FF;}
+  to {background-color: yellow;}
+} */
+
+
+
+.blob1 {
+  z-index: -1;
+  overflow: hidden;
+  position: absolute;
+  overflow: hidden;
+  right: 0px;
+  top: 0px;
+
+  animation: animation1 18s linear infinite;
+}
+
+.blob2 {
+  z-index: -1;
+  overflow: hidden;
+  position: absolute;
+  overflow: hidden;
+  right: -250px;
+  top: -100px;
+
+  animation: animation1 15s linear infinite;
+}
+
+@keyframes animation1{
+  0% {
+    transform: translateX(0) translateZ(0) scaleY(1);
+  }
+  50% {
+    transform: translateY(-10%) translateZ(0) scaleY(0.9);
+  }
+  100% {
+    transform: translateX(0) translateZ(0) scaleY(1);
+  }
+}
+
+.blob4 {
+  z-index: -5;
+  overflow: hidden;
+  position: absolute;
+  overflow: hidden;
+  right: 0px;
+  top: -100px;
+  width: 1600px;
+  transform: rotate(15deg);
+  animation: animation2 20s linear infinite;
+}
+
+@keyframes animation2{
+  0% {
+    transform: translateX(0) translateZ(0) scaleX(1);
+  }
+  50% {
+    transform: translateX(10%) translateZ(0) scaleX(0.9);
+  }
+  100% {
+    transform: translateX(0) translateZ(0) scaleX(1);
+  }
+}
+
+.blob3 {
+  z-index: -1;
+  overflow: hidden;
+  position: absolute;
+  overflow: hidden;
+  left: 0px;
+  top: 0px;
+  height: 800px;
+  width: auto;
+  animation: animation3 20s linear infinite;
+}
+
+.blob5 {
+  z-index: -1;
+  overflow: hidden;
+  position: absolute;
+  overflow: hidden;
+  left: -200px;
+  top: 200px;
+  height: 800px;
+  width: auto;
+  transform: rotate(-20deg);
+  animation: animation3 18s linear infinite;
+}
+
+@keyframes animation3{
+  0% {
+    transform: translateX(0) translateZ(0) scaleX(1) scaleY(1);
+  }
+  50% {
+    transform: translateX(-5%) translateY(5%) translateZ(0) scaleX(0.9) scaleY(0.95);
+  }
+  100% {
+    transform: translateX(0) translateZ(0) scaleX(1) scaleY(1);
+  }
 }

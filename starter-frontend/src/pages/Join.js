@@ -1,7 +1,7 @@
 import Head from '../components/Head';
 import JoinBox from '../components/JoinBox';
 
-function Create() {
+function Join() {
     return (
         <>
             <Head />
@@ -10,4 +10,4 @@ function Create() {
     )
 }
 
-export default Create
+export default Join
