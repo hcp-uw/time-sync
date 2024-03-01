@@ -13,8 +13,6 @@ function JoinBox() {
     const [eventName, setEventNameValue] = useState('');
     const [showEventName, setShowEventName] = useState(false);
 
-    // NEED TO FIGURE OUT EVENT HANDLER FOR NEXT BUTTON
-
     // Function to handle sync change and update the state
     const handleNameChange = (e) => {
         setNameValue(e.target.value);
@@ -41,7 +39,7 @@ function JoinBox() {
             if (eventName.length > 0) {
                 const syncCode = Math.floor(10000 + Math.random() * 90000);
                 // If passes all checks, redirect to join page
-                window.location.href = '/join' + '?syncCode=' + syncCode + '&name=' + name;
+                window.location.href = '/calender' + '?syncCode=' + syncCode + '&name=' + name + '&create=true';
             } else {
                 alert("Please enter a event name of at least 1 character");
             }

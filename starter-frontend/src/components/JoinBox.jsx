@@ -39,7 +39,8 @@ function JoinBox() {
         // Checks for the name entered
         if (name.length > 0) {
             // If passes all checks, redirect to join page
-            window.location.href = '/join' + '?syncCode=' + syncCode + '&name=' + name;
+            // window.location.href = '/join' + '?syncCode=' + syncCode + '&name=' + name;
+            window.location.href = '/calender' + '?syncCode=' + syncCode + '&name=' + name + '&create=false';
         } else {
             alert("Please enter a name of at least 1 character");
         }        
@@ -48,6 +49,7 @@ function JoinBox() {
     return (
         // Div for the entire page besides header
         <div className="allBody">
+            <Header />
             {/* Text at top of page */}
             <t>Join Page</t>
             {/* Div for overall centered box */}
