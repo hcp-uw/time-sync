@@ -2,6 +2,7 @@ import styles from './App.css';
 
 import Join from './pages/Join';
 import Create from './pages/Create';
+import Calender from './pages/Calender';
 
 import { Route, Routes } from 'react-router-dom';
 
@@ -35,6 +36,7 @@ function App() {
         <Route path="/" element={<Join />} /> 
         <Route path="/join" element={<Join />} />
         <Route path="/create" element={<Create />} />
+        <Route path="/calender" element={<Calender />} />
       </Routes>
     </>
   );

@@ -6,7 +6,6 @@ function Create() {
         <>
             <Head />
             <CreateBox />
-            
         </>
     )
 }

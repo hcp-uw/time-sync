@@ -44,7 +44,8 @@ function JoinBox() {
         // Checks for the name entered
         if (name.length > 0) {
             // If passes all checks, redirect to join page
-            window.location.href = '/join' + '?syncCode=' + syncCode + '&name=' + name;
+            // window.location.href = '/join' + '?syncCode=' + syncCode + '&name=' + name;
+            window.location.href = '/calender' + '?syncCode=' + syncCode + '&name=' + name + '&create=false';
         } else {
             alert("Please enter a name of at least 1 character");
         }        
