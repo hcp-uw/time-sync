@@ -1,0 +1,119 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Horizontally center the box */
+    align-items: center; /* Vertically center the box */
+    text-align: center;
+    height: 80vh;
+  }
+
+  .calender_join_box {
+    width: 480px; /* Set desired width of the box */
+    height: 190px; /* Set desired height of the box */
+    background-color: rgba(0, 0, 0, 0.16); /* Set background color */
+    border: 5px solid #5700C7; /* Optional: Add border */
+    border-radius: 15px;
+    justify-content: center; /* Center horizontally */
+    text-align: center;
+    align-items: center;
+  }
+
+  .calender_generate_box {
+    width: 480px; /* Set desired width of the box */
+    height: 420px; /* Set desired height of the box */
+    background-color: rgba(0, 0, 0, 0.16); /* Set background color */
+    border: 5px solid #5700C7; /* Optional: Add border */
+    border-radius: 15px;
+    justify-content: center; /* Center horizontally */
+    text-align: center;
+    align-items: center;
+  }
+
+  .calender_generate_box h2 {
+    font-family: 'Quattrocento Sans';
+    color: white;
+    font-size: 35px;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+  }
+
+  .name_enter_box {
+    height: 90px;
+    width: 480px;
+    background-color: rgba(0, 0, 0, 0.16); /* Set background color */
+    display: flex;
+    border-radius: 15px; /* Add border radius for rounded corners */
+    outline: none; /* Remove default outline */
+    border: none;
+    border-bottom: 5px solid #5700C7;
+  }
+
+  .name_enter_box::placeholder {
+    font-size: 30px; /* Set font size for text */
+    color: rgba(255, 255, 255, 0.3);
+    padding-left: 10px;
+    text-align: left;
+    font-family: 'Quattrocento Sans';
+    font-weight: 700;
+  }
+      
+  input.name_enter_box[type="text"] {
+    font-size: 30px; /* Set the font size to 16 pixels */
+    text-align: center;
+    font-family: 'Quattrocento Sans';
+    font-weight: 501;
+    color: white;
+  }
+  
+  .join_button {
+    width: 380px; /* Set width as needed */
+    height: 60px; /* Set height as needed */
+    margin-top: 30px;
+    border: 4px solid #4E4E4E; /* Add border for the box */
+    background-color: #4E4E4E;
+    border-radius: 15px; /* Add border radius for rounded corners */
+    outline: none; /* Remove default outline */
+  
+    font-family: 'Quattrocento Sans';
+    font-size: 40px;
+    color: #FFFFFF;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .generate_button {
+    width: 300px; /* Set width as needed */
+    height: 60px; /* Set height as needed */
+    margin-top: 25px;
+    border: 4px solid #4E4E4E; /* Add border for the box */
+    background-color: #4E4E4E;
+    border-radius: 15px; /* Add border radius for rounded corners */
+    outline: none; /* Remove default outline */
+  
+    font-family: 'Quattrocento Sans';
+    font-size: 40px;
+    color: #FFFFFF;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  /* Defines the size of the logo for the join and create images*/
+  .calenderImage {
+    margin-top: 12px;
+    width: 65px;
+    height: 65px;
+    display: inline-block;
+    max-width: 25%;
+    text-align: center;
+    margin: 10px 30px;
+  }
+
+  
+  .allBody {
+    background-color: #8C33FF;
+    height: calc(100vh);
+    overflow: auto;
+  }
