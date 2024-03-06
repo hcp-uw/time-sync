@@ -2,6 +2,11 @@ import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import './Calender.css';
 import Header from '../components/Header'
+import blob1 from '../images/Purple blob.png';
+import blob2 from '../images/Green blob.png';
+import blob3 from '../images/Purple blob 2.png';
+import blob4 from '../images/Purple blob 3.png';
+import blob5 from '../images/Green blob 2.png';
 
 import googleCalendar from '../images/googleCalender.png';
 import microsoftOutlook from '../images/outlookCalender.png';
@@ -88,25 +93,31 @@ function Calender() {
                 {showCreate && (
                     <>
                     <div class="calender_generate_box">
-                        <a href="https://workspace.google.com/products/calendar/?hl=en-US">
-                            <img class="calenderImage" src={googleCalendar} alt="Google Calender" />
-                        </a>
-                        <a href="https://www.microsoft.com/en-us/microsoft-365/outlook/email-and-calendar-software-microsoft-outlook">
-                            <img class="calenderImage" src={microsoftOutlook} alt="Microsoft Outlook" />                        
-                        </a>
+                        <div class="calendar_options">
+                            <input type="radio" id="calendar1" name="calendar" checked></input>
+                            <label for="calendar1">
+                                <img class="calenderImage" src={googleCalendar} alt="Google Calender" />
+                            </label>
+
+                            <input type="radio" id="calendar2" name="calendar"></input>
+                            <label for="calendar2">
+                                <img class="calenderImage" src={microsoftOutlook} alt="Microsoft Outlook" />
+                            </label>
+                        </div>
+
                         <input type="text" class="sync_code_box" placeholder="Calender Link" readonly onChange={handleSyncChange}></input>
                         <h2>Duration</h2>
 
                         {/* TODO: HAVE OPTIONS HERE */}
-                        <div class="options">
-                            <label for="option1">1 day</label>
+                        <div class="duration_options">
                             <input type="radio" id="option1" name="duration" value="1day"></input>
+                            <label for="option1">1 day</label>
 
-                            <label for="option2">3 days</label>
                             <input type="radio" id="option2" name="duration" value="3days"></input>
+                            <label for="option2">3 days</label>
 
-                            <label for="option3">7 days</label>
                             <input type="radio" id="option3" name="duration" value="7days"></input>
+                            <label for="option3">7 days</label>
                         </div>
                     </div>
                     <button class="join_button" onClick={handleSyncButtonClick}>Generate!</button>
@@ -114,6 +125,11 @@ function Calender() {
                 )}
                 
             </div>
+            <img class="blob1" src={blob1}/>
+            <img class="blob2" src={blob2}/>
+            <img class="blob3" src={blob3}/>
+            <img class="blob4" src={blob4}/>
+            <img class="blob5" src={blob5}/>
         </div>
         
     );
