@@ -35,37 +35,9 @@
     font-size: 35px;
     font-weight: 700;
     text-decoration: underline;
-    text-underline-offset: 5px;
+    text-underline-offset: 7px;
   }
 
-  .name_enter_box {
-    height: 90px;
-    width: 480px;
-    background-color: rgba(0, 0, 0, 0.16); /* Set background color */
-    display: flex;
-    border-radius: 15px; /* Add border radius for rounded corners */
-    outline: none; /* Remove default outline */
-    border: none;
-    border-bottom: 5px solid #5700C7;
-  }
-
-  .name_enter_box::placeholder {
-    font-size: 30px; /* Set font size for text */
-    color: rgba(255, 255, 255, 0.3);
-    padding-left: 10px;
-    text-align: left;
-    font-family: 'Quattrocento Sans';
-    font-weight: 700;
-  }
-      
-  input.name_enter_box[type="text"] {
-    font-size: 30px; /* Set the font size to 16 pixels */
-    text-align: center;
-    font-family: 'Quattrocento Sans';
-    font-weight: 501;
-    color: white;
-  }
-  
   .join_button {
     width: 380px; /* Set width as needed */
     height: 60px; /* Set height as needed */
@@ -102,18 +74,96 @@
 
   /* Defines the size of the logo for the join and create images*/
   .calenderImage {
-    margin-top: 12px;
-    width: 65px;
-    height: 65px;
+    width: 80px;
+    height: 80px;
     display: inline-block;
     max-width: 25%;
     text-align: center;
-    margin: 10px 30px;
+    margin: 30px 30px;
   }
 
+  input[type="radio"] {
+    display: none;
+  }
+
+  .duration_options input[type="radio"]:checked + label {
+    background: rgba(255, 255, 255, 0.33);
+    border-radius: 40px;
+    box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.4);
+  }
+
+  .duration_options label {
+    font-family: 'Quattrocento Sans';
+    color: white;
+    font-size: 35px;
+    padding: 10px 25px;
+    cursor: pointer;
+  }
+
+  .calendar_options input[type="radio"]:checked + label {
+    border-top: 5px solid white;
+    padding: 0px;
+  }
+
+  .calendar_options label {
+    cursor: pointer;
+    border: none;
+  }
   
   .allBody {
     background-color: #8C33FF;
     height: calc(100vh);
-    overflow: auto;
+    overflow: hidden;
+  }
+
+  .blob1 {
+    z-index: -1;
+    overflow: hidden;
+    position: absolute;
+    overflow: hidden;
+    right: -50px;
+    top: 0px
+  }
+  
+  .blob2 {
+    z-index: -1;
+    overflow: hidden;
+    position: absolute;
+    overflow: hidden;
+    right: -250px;
+    top: -100px
+  }
+  
+  .blob3 {
+    z-index: -1;
+    overflow: hidden;
+    position: absolute;
+    overflow: hidden;
+    left: 0px;
+    top: 0px;
+    height: 800px;
+    width: auto;
+  }
+  
+  .blob4 {
+    z-index: -3;
+    overflow: hidden;
+    position: absolute;
+    overflow: hidden;
+    right: 0px;
+    top: -100px;
+    width: 1600px;
+    transform: rotate(15deg);
+  }
+  
+  .blob5 {
+    z-index: -1;
+    overflow: hidden;
+    position: absolute;
+    overflow: hidden;
+    left: -200px;
+    top: 200px;
+    height: 800px;
+    width: auto;
+    transform: rotate(-20deg);
   }
