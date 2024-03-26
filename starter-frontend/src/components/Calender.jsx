@@ -14,50 +14,35 @@ import microsoftOutlook from '../images/outlookCalender.png';
 function Calender() {
     const currentURL = useLocation();
     const searchParams = new URLSearchParams(currentURL.search);
+     // .../calender?create=bool&syncCode=5int&name=string&users=int
+
     // TODO: change showCreate to be a const
     let showCreate = searchParams.get('create') === 'true';
-    // showCreate = false;
-
+    showCreate = true;
+    const syncCode = searchParams.get('syncCode');
+    const name = searchParams.get('name');
+    console.log("currnet data on calender is " + showCreate + " " + syncCode + " " + name);
+    
     /*
-    State variable to hold the input value (holds the "state" of the input
-    must have setInputValue to update the state, is a react thing)
-    Have seperate variables to know which input box to display
+    State variable to hold the email in the input box
     */ 
-    const [syncCode, setSyncCodeValue] = useState('');
-    const [showSyncCode, setShowSyncCode] = useState(true);
-    const [name, setNameValue] = useState('');
-    const [showName, setShowName] = useState(false);
+    const [email, setEmailValue] = useState('');
 
     // Function to handle sync change and update the state
-    const handleSyncChange = (e) => {
-        setSyncCodeValue(e.target.value);
-    };
-
-    // Function to handle name change and update the state
-    const handleNameChange = (e) => {
-        setNameValue(e.target.value);
+    const handleEmailChange = (e) => {
+        setEmailValue(e.target.value);
     };
 
     // Function to handle button click
     const handleSyncButtonClick = () => {
         // Button logic here, syncCode must be 5 digits and an int
-        if (!isNaN(syncCode) && syncCode.length == 5 && Number.isInteger(parseInt(syncCode, 10))) {
-            setShowSyncCode(false);
-            setShowName(true);
+        if (typeof email === 'string' && email.trim() !== '' && email.includes('@')) {
+            const randUsers = Math.floor(Math.random() * 10) + 1;
+            // If passes all checks, redirect to sync page
+            window.location.href = '/sync' + '?create=' + showCreate + '&syncCode=' + syncCode + '&name=' + name + '&users=' + randUsers;
         } else {
-            alert("Please enter a valid 5 digit Sync Code, currently the syncCode is: " + syncCode);
+            alert("Please enter a valid email address");
         }
-    };
-
-    // Function to handle button click
-    const handleNameButtonClick = () => {
-        // Checks for the name entered
-        if (name.length > 0) {
-            // If passes all checks, redirect to join page
-            window.location.href = '/join' + '?syncCode=' + syncCode + '&name=' + name;
-        } else {
-            alert("Please enter a name of at least 1 character");
-        }        
     };
 
     return (
@@ -83,7 +68,7 @@ function Calender() {
                         <a href="https://www.microsoft.com/en-us/microsoft-365/outlook/email-and-calendar-software-microsoft-outlook">
                             <img class="calenderImage" src={microsoftOutlook} alt="Microsoft Outlook" />                        
                         </a>
-                        <input type="text" class="sync_code_box" placeholder="Calender Link" readonly onChange={handleSyncChange}></input>
+                        <input type="text" class="sync_code_box" placeholder="Calender Link" readonly onChange={handleEmailChange}></input>
                     </div>
                     <button class="join_button" onClick={handleSyncButtonClick}>Join Sync!</button>
                     </>
@@ -105,7 +90,7 @@ function Calender() {
                             </label>
                         </div>
 
-                        <input type="text" class="sync_code_box" placeholder="Calender Link" readonly onChange={handleSyncChange}></input>
+                        <input type="text" class="sync_code_box" placeholder="Calender Link" readonly onChange={handleEmailChange}></input>
                         <h2>Duration</h2>
 
                         {/* TODO: HAVE OPTIONS HERE */}
