@@ -43,9 +43,9 @@ function JoinBox() {
     const handleNameButtonClick = () => {
         // Checks for the name entered
         if (name.length > 0) {
-            // If passes all checks, redirect to join page
-            // window.location.href = '/join' + '?syncCode=' + syncCode + '&name=' + name;
-            window.location.href = '/calender' + '?syncCode=' + syncCode + '&name=' + name + '&create=false';
+            // If passes all checks, redirect to calender page
+            window.location.href = '/calender' + '?create=false' + '&syncCode=' + syncCode + '&name=' + name + '&create=true';
+            // .../calender?create=bool&syncCode=5int&name=string&users=int
         } else {
             alert("Please enter a name of at least 1 character");
         }        
