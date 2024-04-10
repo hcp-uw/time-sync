@@ -46,7 +46,7 @@
     background-color: #4E4E4E;
     border-radius: 15px; /* Add border radius for rounded corners */
     outline: none; /* Remove default outline */
-  
+
     font-family: 'Quattrocento Sans';
     font-size: 40px;
     color: #FFFFFF;
@@ -63,7 +63,7 @@
     background-color: #4E4E4E;
     border-radius: 15px; /* Add border radius for rounded corners */
     outline: none; /* Remove default outline */
-  
+
     font-family: 'Quattrocento Sans';
     font-size: 40px;
     color: #FFFFFF;
@@ -109,13 +109,13 @@
     cursor: pointer;
     border: none;
   }
-  
+
   .allBody {
     background-color: #8C33FF;
     height: calc(100vh);
     overflow: hidden;
   }
-
+/*
   .blob1 {
     z-index: -1;
     overflow: hidden;
@@ -124,7 +124,7 @@
     right: -50px;
     top: 0px
   }
-  
+
   .blob2 {
     z-index: -1;
     overflow: hidden;
@@ -133,37 +133,38 @@
     right: -250px;
     top: -100px
   }
-  
+
   .blob3 {
     z-index: -1;
     overflow: hidden;
     position: absolute;
     overflow: hidden;
     left: 0px;
-    top: 0px;
+    bottom: 0px;
     height: 800px;
     width: auto;
   }
-  
+
   .blob4 {
     z-index: -3;
     overflow: hidden;
     position: absolute;
     overflow: hidden;
     right: 0px;
-    top: -100px;
-    width: 1600px;
+    bottom: 0px;
+    width: 60%;
+    height: 120%;
     transform: rotate(15deg);
   }
-  
+
   .blob5 {
     z-index: -1;
     overflow: hidden;
     position: absolute;
     overflow: hidden;
     left: -200px;
-    top: 200px;
+    bottom: 0px;
     height: 800px;
     width: auto;
     transform: rotate(-20deg);
-  }
+  } */

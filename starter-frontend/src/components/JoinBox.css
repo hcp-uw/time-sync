@@ -5,7 +5,7 @@
   align-items: center; /* Vertically center the box */
   height: 80vh;
 }
-  
+
 .box {
   width: 480px; /* Set desired width of the box */
   height: 190px; /* Set desired height of the box */
@@ -95,7 +95,7 @@ input.sync_code_box[type="text"] {
   overflow: hidden;
   right: 0px;
   top: 0px;
-
+  height: 90%;
   animation: animation1 18s linear infinite;
 }
 
@@ -106,7 +106,7 @@ input.sync_code_box[type="text"] {
   overflow: hidden;
   right: -250px;
   top: -100px;
-
+  height: 80%;
   animation: animation1 15s linear infinite;
 }
 
@@ -128,21 +128,22 @@ input.sync_code_box[type="text"] {
   position: absolute;
   overflow: hidden;
   right: 0px;
-  top: -100px;
-  width: 1600px;
+  top: -10px;
+  width: 100%;
+  height: 120%;
   transform: rotate(15deg);
   animation: animation2 20s linear infinite;
 }
 
 @keyframes animation2{
   0% {
-    transform: translateX(0) translateZ(0) scaleX(1);
+    transform: translateX(0%) translateZ(0) scaleX(1);
   }
   50% {
-    transform: translateX(10%) translateZ(0) scaleX(0.9);
+    transform: translateX(-5%) translateZ(0) scaleX(1.5);
   }
   100% {
-    transform: translateX(0) translateZ(0) scaleX(1);
+    transform: translateX(0%) translateZ(0) scaleX(1);
   }
 }
 
@@ -152,8 +153,8 @@ input.sync_code_box[type="text"] {
   position: absolute;
   overflow: hidden;
   left: 0px;
-  top: 0px;
-  height: 800px;
+  bottom: 0px;
+  height: 100%;
   width: auto;
   animation: animation3 20s linear infinite;
 }
@@ -164,8 +165,8 @@ input.sync_code_box[type="text"] {
   position: absolute;
   overflow: hidden;
   left: -200px;
-  top: 200px;
-  height: 800px;
+  bottom: 0px;
+  height: 80%;
   width: auto;
   transform: rotate(-20deg);
   animation: animation3 18s linear infinite;
