@@ -22,7 +22,7 @@
     font-family: 'Nunito';
     margin: 0 10px;
   }
-  
+
   /* Style the header links */
   .header a {
     color: white;
@@ -33,7 +33,7 @@
     border-radius: 4px;
     display: inline-block;
   }
-  
+
   /* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
   .header a.title {
     float: left;
@@ -41,7 +41,7 @@
     font-weight: bold;
     font-family: 'Pacifico' ;
   }
-  
+
   /* Change the background color on mouse-over */
   .header a:visited {
     font-weight: bold;
@@ -50,7 +50,7 @@
   .header-right {
     text-align: center;
 }
-  
+
   /* Float the link section to the right */
   .header a.tabs {
     text-align: center;
@@ -65,7 +65,7 @@
     width: 37px;
     height: 37px;
   }
-  
+
   /* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
   @media screen and (max-width: 500px) {
     .header a {
