@@ -1,4 +1,4 @@
-import styles from './navbar.css';  
+import styles from './navbar.css';
 import { Link, NavLink } from 'react-router-dom';
 
 
@@ -7,19 +7,19 @@ import createImage from '../images/createImage.png';
 
 function Header() {
     return (
-        <nav className="nav">
+        <nav>
             <Link to="/" className="title">TimeSync</Link>
             <ul>
-                <img className="logo" src={joinImage} alt="Join" />
                 <li>
+                    <img src={joinImage} alt="Join" />
                     <NavLink to="/join">Join</NavLink>
                 </li>
-
-                <img className="logo" src={createImage} alt="Create" />
                 <li>
+                    <img src={createImage} alt="Create" />
                     <NavLink to="/create">Create</NavLink>
                 </li>
             </ul>
+            <div class="title">TimeSync</div>
         </nav>
     );
 }
