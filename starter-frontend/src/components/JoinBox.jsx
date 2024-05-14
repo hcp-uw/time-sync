@@ -7,6 +7,10 @@ import blob3 from '../images/Purple blob 2.png';
 import blob4 from '../images/Purple blob 3.png';
 import blob5 from '../images/Green blob 2.png';
 
+
+import 'firebase/compat/firestore';
+import { db } from "../config/firebase.js";
+
 function JoinBox() {
     /*
     State variable to hold the input value (holds the "state" of the input
@@ -29,20 +33,40 @@ function JoinBox() {
     };
 
     // Function to handle button click
-    const handleSyncButtonClick = () => {
+    const handleSyncButtonClick = async () => {
         // Button logic here, syncCode must be 5 digits and an int
         if (!isNaN(syncCode) && syncCode.length == 5 && Number.isInteger(parseInt(syncCode, 10))) {
-            setShowSyncCode(false);
-            setShowName(true);
+            if (await checkSyncCodeExists(syncCode)) {
+                setShowSyncCode(false);
+                setShowName(true);
+            } else {
+                alert("The " + syncCode + " SyncCode currently does not exist! Please enter a valid 5 digit SyncCode or create a SyncCode.");
+            }
         } else {
-            alert("Please enter a valid 5 digit Sync Code, currently the syncCode is: " + syncCode);
+            alert("Please enter a valid 5 digit Sync Code, currently the SyncCode is: " + syncCode);
         }
     };
 
+    const checkSyncCodeExists = async (syncCode) => {
+        console.log("syncCode entered: " + syncCode);
+        let collectionRef = db.collection(syncCode.toString()); // can hardcode syncCode for testing
+
+        let snapshot = await collectionRef.get();
+        if (snapshot.empty) {
+            // console.log("syncCode does not exist");
+            return false; // syncCode does not exist
+        } else {
+            // console.log("syncCode exists");
+            return true; // syncCode exists
+        }
+    }
+
     // Function to handle button click
-    const handleNameButtonClick = () => {
+    const handleNameButtonClick = async () => {
         // Checks for the name entered
         if (name.length > 0) {
+            await uploadData(); // Might not have to be async but oh oh well :P
+
             // If passes all checks, redirect to calender page
             window.location.href = '/calender' + '?create=false' + '&syncCode=' + syncCode + '&name=' + name + '&create=true';
             // .../calender?create=bool&syncCode=5int&name=string&users=int
@@ -50,6 +74,19 @@ function JoinBox() {
             alert("Please enter a name of at least 1 character");
         }        
     };
+
+    const uploadData = async () => {
+        // The data uploaded for each person to Firebase
+        const personData = {
+            userName: name,
+            calenderData: ["8:00-9:30", "11:00-12:30", "14:00-15:30", "17:00-18:30", "19:30-20:00"]
+        };
+
+        const collectionRef = await db.collection(syncCode.toString()); // TEST CODE (20001 is test syncCode data)
+
+        // We know syncCode is a collection that exists, we are simply adding a document for a new person
+        return collectionRef.doc(name).set(personData);
+    }
 
     return (
         // Div for the entire page besides header
