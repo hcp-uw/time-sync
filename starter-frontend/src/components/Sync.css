@@ -1,5 +1,5 @@
 :root {
-  --maxSync: 3;
+  --maxSync: 4;
   --meterHeight: 70%;
   --calendarWidth: 55%;
   --numDays: 1;
@@ -44,6 +44,9 @@
 
 #availability-meter .event {
   grid-row-start: 1;
+  font-family: "Questrial", sans-serif;
+  display: flex;
+  align-items: last baseline;
 }
 
 #availability-meter .event:hover{

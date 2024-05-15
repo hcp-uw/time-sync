@@ -45,13 +45,19 @@ function Sync() {
         console.log(data);
         qs(".day-1 .events").innerHTML = "";
         data.forEach(el => {
-            if (el.id === "Doc Info") {
-                eventName = el.eventName;
-            } else {
+            if (el.id !== "Doc Info") {
                 generateUserEvents(el.calenderData);
             }
         });
     }, [data]);
+
+    data.forEach(el => {
+        if (el.id === "Doc Info") {
+            eventName = el.eventName;
+        }
+    });
+
+    console.log("test:" + eventName);
 
     function generateUserEvents(calendarData) {
         let formattedCalData = convertCalendarData(calendarData);
@@ -122,11 +128,11 @@ function Sync() {
                 <section id="event-info">
                     <h1 id="event-name">{eventName}</h1>
                     <div id="availability-meter">
-                    <div class="event meter-0"></div>
-                    <div class="event meter-1"></div>
-                    <div class="event meter-2"></div>
-                    <div class="event meter-3"></div>
-                    <div class="event meter-4"></div>
+                    <div class="event meter-0">0</div>
+                    <div class="event meter-1">1</div>
+                    <div class="event meter-2">2</div>
+                    <div class="event meter-3">3</div>
+                    {/* <div class="event meter-4"></div> */}
                     </div>
                 </section>
                 <section id="calendar">
