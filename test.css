@@ -1,5 +1,5 @@
 :root {
-  --maxSync: 3;
+  --maxSync: 4;
   --meterHeight: 70%;
   --calendarWidth: 55%;
   --numDays: 1;
@@ -7,7 +7,7 @@
   --numInts: calc(var(--numHours) * 4); /* 15 min intervals for events */
   --hourHeight: 60px;
   --intHeight: calc(var(--hourHeight) / 4);
-  --calBgColor: rgb(255, 226, 255);
+  --calBgColor: #fff1f8;
   --eventColor: rgba(214, 51, 255, 0.25);
 }
 
@@ -21,13 +21,12 @@
 }
 
 #event-info {
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  border-right: 1px solid black;
 }
 
 #event-info h1 {
   font-family: "Preahvihear", sans-serif;
   font-size: 50px;
-  margin: 20px 0;
 }
 
 #availability-meter {
@@ -75,10 +74,10 @@
   display: grid;
   gap: 10px;
   grid-template-columns: auto 1fr;
-  padding: 2rem;
+  margin: 2rem;
   width: var(--calendarWidth);
   overflow-y: auto;
-  height: 87%;
+  height: 95%;
 }
 
 #timeline {
@@ -87,8 +86,7 @@
 }
 
 #spacer, .date-title {
-  height: 60px;
-  position: sticky;
+  height: 60px
 }
 
 #spacer {
@@ -153,7 +151,7 @@
 /* ------- SYNC'D UP SECTION ------- */
 
 #syncd-up {
-  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  border-left: 1px solid black;
 }
 
 #syncd-up h1 {
@@ -171,7 +169,6 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  background-color: white;
 }
 
 .user img {
@@ -196,13 +193,12 @@
   padding: 0;
 }
 
-#sync-page-wrapper {
+body {
   font-family: system-ui, sans-serif;
   display: flex;
   justify-content: center;
   overflow: hidden;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.9);
 }
 
 html {

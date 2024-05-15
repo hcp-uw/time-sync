@@ -1,0 +1,585 @@
+:root {
+  --tempStart: 1;
+}
+
+.start-0500 {
+  grid-row-start: calc(var(--tempStart));
+}
+
+.start-0515 {
+  grid-row-start: calc(var(--tempStart) + 1);
+}
+
+.start-0530 {
+  grid-row-start: calc(var(--tempStart) + 2);
+}
+
+.start-0545 {
+  grid-row-start: calc(var(--tempStart) + 3);
+}
+
+.start-0600 {
+  grid-row-start: calc(var(--tempStart) + 4);
+}
+
+.start-0615 {
+  grid-row-start: calc(var(--tempStart) + 5);
+}
+
+.start-0630 {
+  grid-row-start: calc(var(--tempStart) + 6);
+}
+
+.start-0645 {
+  grid-row-start: calc(var(--tempStart) + 7);
+}
+
+.start-0700 {
+  grid-row-start: calc(var(--tempStart) + 8);
+}
+
+.start-0715 {
+  grid-row-start: calc(var(--tempStart) + 9);
+}
+
+.start-0730 {
+  grid-row-start: calc(var(--tempStart) + 10);
+}
+
+.start-0745 {
+  grid-row-start: calc(var(--tempStart) + 11);
+}
+
+.start-0800 {
+  grid-row-start: calc(var(--tempStart) + 12);
+}
+
+.start-0815 {
+  grid-row-start: calc(var(--tempStart) + 13);
+}
+
+.start-0830 {
+  grid-row-start: calc(var(--tempStart) + 14);
+}
+
+.start-0845 {
+  grid-row-start: calc(var(--tempStart) + 15);
+}
+
+.start-0900 {
+  grid-row-start: calc(var(--tempStart) + 16);
+}
+
+.start-0915 {
+  grid-row-start: calc(var(--tempStart) + 17);
+}
+
+.start-0930 {
+  grid-row-start: calc(var(--tempStart) + 18);
+}
+
+.start-0945 {
+  grid-row-start: calc(var(--tempStart) + 19);
+}
+
+.start-1000 {
+  grid-row-start: calc(var(--tempStart) + 20);
+}
+
+.start-1015 {
+  grid-row-start: calc(var(--tempStart) + 21);
+}
+
+.start-1030 {
+  grid-row-start: calc(var(--tempStart) + 22);
+}
+
+.start-1045 {
+  grid-row-start: calc(var(--tempStart) + 23);
+}
+
+.start-1100 {
+  grid-row-start: calc(var(--tempStart) + 24);
+}
+
+.start-1115 {
+  grid-row-start: calc(var(--tempStart) + 25);
+}
+
+.start-1130 {
+  grid-row-start: calc(var(--tempStart) + 26);
+}
+
+.start-1145 {
+  grid-row-start: calc(var(--tempStart) + 27);
+}
+
+.start-1200 {
+  grid-row-start: calc(var(--tempStart) + 28);
+}
+
+.start-1215 {
+  grid-row-start: calc(var(--tempStart) + 29);
+}
+
+.start-1230 {
+  grid-row-start: calc(var(--tempStart) + 30);
+}
+
+.start-1245 {
+  grid-row-start: calc(var(--tempStart) + 31);
+}
+
+.start-1300 {
+  grid-row-start: calc(var(--tempStart) + 32);
+}
+
+.start-1315 {
+  grid-row-start: calc(var(--tempStart) + 33);
+}
+
+/* Continue adding classes up to .start-2300 */
+
+.start-1330 {
+  grid-row-start: calc(var(--tempStart) + 34);
+}
+
+.start-1345 {
+  grid-row-start: calc(var(--tempStart) + 35);
+}
+
+.start-1400 {
+  grid-row-start: calc(var(--tempStart) + 36);
+}
+
+.start-1415 {
+  grid-row-start: calc(var(--tempStart) + 37);
+}
+
+.start-1430 {
+  grid-row-start: calc(var(--tempStart) + 38);
+}
+
+.start-1445 {
+  grid-row-start: calc(var(--tempStart) + 39);
+}
+
+.start-1500 {
+  grid-row-start: calc(var(--tempStart) + 40);
+}
+
+.start-1515 {
+  grid-row-start: calc(var(--tempStart) + 41);
+}
+
+.start-1530 {
+  grid-row-start: calc(var(--tempStart) + 42);
+}
+
+.start-1545 {
+  grid-row-start: calc(var(--tempStart) + 43);
+}
+
+.start-1600 {
+  grid-row-start: calc(var(--tempStart) + 44);
+}
+
+.start-1615 {
+  grid-row-start: calc(var(--tempStart) + 45);
+}
+
+.start-1630 {
+  grid-row-start: calc(var(--tempStart) + 46);
+}
+
+.start-1645 {
+  grid-row-start: calc(var(--tempStart) + 47);
+}
+
+.start-1700 {
+  grid-row-start: calc(var(--tempStart) + 48);
+}
+
+.start-1715 {
+  grid-row-start: calc(var(--tempStart) + 49);
+}
+
+.start-1730 {
+  grid-row-start: calc(var(--tempStart) + 50);
+}
+
+.start-1745 {
+  grid-row-start: calc(var(--tempStart) + 51);
+}
+
+.start-1800 {
+  grid-row-start: calc(var(--tempStart) + 52);
+}
+
+.start-1815 {
+  grid-row-start: calc(var(--tempStart) + 53);
+}
+
+.start-1830 {
+  grid-row-start: calc(var(--tempStart) + 54);
+}
+
+.start-1845 {
+  grid-row-start: calc(var(--tempStart) + 55);
+}
+
+.start-1900 {
+  grid-row-start: calc(var(--tempStart) + 56);
+}
+
+.start-1915 {
+  grid-row-start: calc(var(--tempStart) + 57);
+}
+
+.start-1930 {
+  grid-row-start: calc(var(--tempStart) + 58);
+}
+
+.start-1945 {
+  grid-row-start: calc(var(--tempStart) + 59);
+}
+
+.start-2000 {
+  grid-row-start: calc(var(--tempStart) + 60);
+}
+
+.start-2015 {
+  grid-row-start: calc(var(--tempStart) + 61);
+}
+
+.start-2030 {
+  grid-row-start: calc(var(--tempStart) + 62);
+}
+
+.start-2045 {
+  grid-row-start: calc(var(--tempStart) + 63);
+}
+
+.start-2100 {
+  grid-row-start: calc(var(--tempStart) + 64);
+}
+
+.start-2115 {
+  grid-row-start: calc(var(--tempStart) + 65);
+}
+
+.start-2130 {
+  grid-row-start: calc(var(--tempStart) + 66);
+}
+
+.start-2145 {
+  grid-row-start: calc(var(--tempStart) + 67);
+}
+
+.start-2200 {
+  grid-row-start: calc(var(--tempStart) + 68);
+}
+
+.start-2215 {
+  grid-row-start: calc(var(--tempStart) + 69);
+}
+
+.start-2230 {
+  grid-row-start: calc(var(--tempStart) + 70);
+}
+
+/* ------- END TIMES ------- */
+
+.end-0500 {
+  grid-row-end: calc(var(--tempStart));
+}
+
+.end-0515 {
+  grid-row-end: calc(var(--tempStart) + 1);
+}
+
+.end-0530 {
+  grid-row-end: calc(var(--tempStart) + 2);
+}
+
+.end-0545 {
+  grid-row-end: calc(var(--tempStart) + 3);
+}
+
+.end-0600 {
+  grid-row-end: calc(var(--tempStart) + 4);
+}
+
+.end-0615 {
+  grid-row-end: calc(var(--tempStart) + 5);
+}
+
+.end-0630 {
+  grid-row-end: calc(var(--tempStart) + 6);
+}
+
+.end-0645 {
+  grid-row-end: calc(var(--tempStart) + 7);
+}
+
+.end-0700 {
+  grid-row-end: calc(var(--tempStart) + 8);
+}
+
+.end-0715 {
+  grid-row-end: calc(var(--tempStart) + 9);
+}
+
+.end-0730 {
+  grid-row-end: calc(var(--tempStart) + 10);
+}
+
+.end-0745 {
+  grid-row-end: calc(var(--tempStart) + 11);
+}
+
+.end-0800 {
+  grid-row-end: calc(var(--tempStart) + 12);
+}
+
+.end-0815 {
+  grid-row-end: calc(var(--tempStart) + 13);
+}
+
+.end-0830 {
+  grid-row-end: calc(var(--tempStart) + 14);
+}
+
+.end-0845 {
+  grid-row-end: calc(var(--tempStart) + 15);
+}
+
+.end-0900 {
+  grid-row-end: calc(var(--tempStart) + 16);
+}
+
+.end-0915 {
+  grid-row-end: calc(var(--tempStart) + 17);
+}
+
+.end-0930 {
+  grid-row-end: calc(var(--tempStart) + 18);
+}
+
+.end-0945 {
+  grid-row-end: calc(var(--tempStart) + 19);
+}
+
+.end-1000 {
+  grid-row-end: calc(var(--tempStart) + 20);
+}
+
+.end-1015 {
+  grid-row-end: calc(var(--tempStart) + 21);
+}
+
+.end-1030 {
+  grid-row-end: calc(var(--tempStart) + 22);
+}
+
+.end-1045 {
+  grid-row-end: calc(var(--tempStart) + 23);
+}
+
+.end-1100 {
+  grid-row-end: calc(var(--tempStart) + 24);
+}
+
+.end-1115 {
+  grid-row-end: calc(var(--tempStart) + 25);
+}
+
+.end-1130 {
+  grid-row-end: calc(var(--tempStart) + 26);
+}
+
+.end-1145 {
+  grid-row-end: calc(var(--tempStart) + 27);
+}
+
+.end-1200 {
+  grid-row-end: calc(var(--tempStart) + 28);
+}
+
+.end-1215 {
+  grid-row-end: calc(var(--tempStart) + 29);
+}
+
+.end-1230 {
+  grid-row-end: calc(var(--tempStart) + 30);
+}
+
+.end-1245 {
+  grid-row-end: calc(var(--tempStart) + 31);
+}
+
+.end-1300 {
+  grid-row-end: calc(var(--tempStart) + 32);
+}
+
+.end-1315 {
+  grid-row-end: calc(var(--tempStart) + 33);
+}
+
+/* Continue adding classes up to .end-2300 */
+
+.end-1330 {
+  grid-row-end: calc(var(--tempStart) + 34);
+}
+
+.end-1345 {
+  grid-row-end: calc(var(--tempStart) + 35);
+}
+
+.end-1400 {
+  grid-row-end: calc(var(--tempStart) + 36);
+}
+
+.end-1415 {
+  grid-row-end: calc(var(--tempStart) + 37);
+}
+
+.end-1430 {
+  grid-row-end: calc(var(--tempStart) + 38);
+}
+
+.end-1445 {
+  grid-row-end: calc(var(--tempStart) + 39);
+}
+
+.end-1500 {
+  grid-row-end: calc(var(--tempStart) + 40);
+}
+
+.end-1515 {
+  grid-row-end: calc(var(--tempStart) + 41);
+}
+
+.end-1530 {
+  grid-row-end: calc(var(--tempStart) + 42);
+}
+
+.end-1545 {
+  grid-row-end: calc(var(--tempStart) + 43);
+}
+
+.end-1600 {
+  grid-row-end: calc(var(--tempStart) + 44);
+}
+
+.end-1615 {
+  grid-row-end: calc(var(--tempStart) + 45);
+}
+
+.end-1630 {
+  grid-row-end: calc(var(--tempStart) + 46);
+}
+
+.end-1645 {
+  grid-row-end: calc(var(--tempStart) + 47);
+}
+
+.end-1700 {
+  grid-row-end: calc(var(--tempStart) + 48);
+}
+
+.end-1715 {
+  grid-row-end: calc(var(--tempStart) + 49);
+}
+
+.end-1730 {
+  grid-row-end: calc(var(--tempStart) + 50);
+}
+
+.end-1745 {
+  grid-row-end: calc(var(--tempStart) + 51);
+}
+
+.end-1800 {
+  grid-row-end: calc(var(--tempStart) + 52);
+}
+
+.end-1815 {
+  grid-row-end: calc(var(--tempStart) + 53);
+}
+
+.end-1830 {
+  grid-row-end: calc(var(--tempStart) + 54);
+}
+
+.end-1845 {
+  grid-row-end: calc(var(--tempStart) + 55);
+}
+
+.end-1900 {
+  grid-row-end: calc(var(--tempStart) + 56);
+}
+
+.end-1915 {
+  grid-row-end: calc(var(--tempStart) + 57);
+}
+
+.end-1930 {
+  grid-row-end: calc(var(--tempStart) + 58);
+}
+
+.end-1945 {
+  grid-row-end: calc(var(--tempStart) + 59);
+}
+
+.end-2000 {
+  grid-row-end: calc(var(--tempStart) + 60);
+}
+
+.end-2015 {
+  grid-row-end: calc(var(--tempStart) + 61);
+}
+
+.end-2030 {
+  grid-row-end: calc(var(--tempStart) + 62);
+}
+
+.end-2045 {
+  grid-row-end: calc(var(--tempStart) + 63);
+}
+
+.end-2100 {
+  grid-row-end: calc(var(--tempStart) + 64);
+}
+
+.end-2115 {
+  grid-row-end: calc(var(--tempStart) + 65);
+}
+
+.end-2130 {
+  grid-row-end: calc(var(--tempStart) + 66);
+}
+
+.end-2145 {
+  grid-row-end: calc(var(--tempStart) + 67);
+}
+
+.end-2200 {
+  grid-row-end: calc(var(--tempStart) + 68);
+}
+
+.end-2215 {
+  grid-row-end: calc(var(--tempStart) + 69);
+}
+
+.end-2230 {
+  grid-row-end: calc(var(--tempStart) + 70);
+}
+
+.end-2245 {
+  grid-row-end: calc(var(--tempStart) + 71);
+}
+
+.end-2300 {
+  grid-row-end: calc(var(--tempStart) + 72);
+}
