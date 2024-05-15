@@ -1,13 +1,20 @@
 {
   "files": {
-    "main.css": "/static/css/main.a5a7797d.css",
-    "main.js": "/static/js/main.69dce5d6.js",
+    "main.css": "/static/css/main.717ca08b.css",
+    "main.js": "/static/js/main.1f9f73fc.js",
+    "static/media/outlookCalender.png": "/static/media/outlookCalender.1e33a2182e76c601f87a.png",
+    "static/media/googleCalender.png": "/static/media/googleCalender.732d8d255ca6143cc095.png",
+    "static/media/Green blob.png": "/static/media/Green blob.476497494d549b55e2a6.png",
+    "static/media/Purple blob.png": "/static/media/Purple blob.9e438588d919120ecea5.png",
+    "static/media/Green blob 2.png": "/static/media/Green blob 2.d3e4e01751a6c826a7e8.png",
+    "static/media/Purple blob 3.png": "/static/media/Purple blob 3.42381b0b9989db021140.png",
+    "static/media/Purple blob 2.png": "/static/media/Purple blob 2.df3a9cb3699842bb95d6.png",
     "index.html": "/index.html",
-    "main.a5a7797d.css.map": "/static/css/main.a5a7797d.css.map",
-    "main.69dce5d6.js.map": "/static/js/main.69dce5d6.js.map"
+    "main.717ca08b.css.map": "/static/css/main.717ca08b.css.map",
+    "main.1f9f73fc.js.map": "/static/js/main.1f9f73fc.js.map"
   },
   "entrypoints": [
-    "static/css/main.a5a7797d.css",
-    "static/js/main.69dce5d6.js"
+    "static/css/main.717ca08b.css",
+    "static/js/main.1f9f73fc.js"
   ]
 }
