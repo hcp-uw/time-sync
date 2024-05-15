@@ -8,6 +8,9 @@ import blob3 from '../images/Purple blob 2.png';
 import blob4 from '../images/Purple blob 3.png';
 import blob5 from '../images/Green blob 2.png';
 
+//import 'firebase/compat/firestore';
+//import { db } from "./firebase";
+
 import googleCalendar from '../images/googleCalender.png';
 import microsoftOutlook from '../images/outlookCalender.png';
 

@@ -1,5 +1,5 @@
 import styles from './App.css';
-
+import MyComponent from './config/MyComponent.js'
 import Join from './pages/Join';
 import Create from './pages/Create';
 import Calender from './pages/Calender';

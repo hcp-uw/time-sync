@@ -8,18 +8,119 @@ import blob2 from '../images/Green blob.png';
 import blob3 from '../images/Purple blob 2.png';
 import blob4 from '../images/Purple blob 3.png';
 import blob5 from '../images/Green blob 2.png';
-
 import busyUser from '../images/busyUser.png';
 import freeUser from '../images/freeUser.png';
 
+import 'firebase/compat/firestore';
+import { db } from "../config/firebase.js";
+
 function Sync() {
+
+    let eventName = "";
+
+    const [data, setData] = useState([]);
+    const currentURL = useLocation();
+    const searchParams = new URLSearchParams(currentURL.search);
+    const syncCode = searchParams.get('syncCode');
+
+    useEffect(() => {
+        // Function to fetch data from Firestore
+        const fetchData = async () => {
+            // const snapshot = await db.collection(syncCode).get();
+            const snapshot = await db.collection("84951").get();
+            const newData = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+            // console.log(newData);
+            setData(newData);
+        };
+
+        fetchData(); // Call the function to fetch data when component mounts
+        // Clean up function to unsubscribe when component unmounts
+    //   return () => {
+    //     // unsubscribe
+    //   };
+    }, []);
+
+    // // Move console.log(data) inside the useEffect hook after setData(newData)
+    useEffect(() => {
+        console.log(data);
+        qs(".day-1 .events").innerHTML = "";
+        data.forEach(el => {
+            if (el.id === "Doc Info") {
+                eventName = el.eventName;
+            } else {
+                generateUserEvents(el.calenderData);
+            }
+        });
+    }, [data]);
+
+    function generateUserEvents(calendarData) {
+        let formattedCalData = convertCalendarData(calendarData);
+        let parent = qs(".day-1 .events");
+        formattedCalData.forEach(timeRange => {
+            let [start, end] = timeRange.split(" ");
+            let event = gen("div");
+            event.classList.add("event");
+            event.classList.add(start);
+            event.classList.add(end);
+            parent.appendChild(event);
+        })
+    }
+
+    function convertCalendarData(calendarData) {
+        let output = [];
+        calendarData.forEach(timeRange => {
+            let [start, end] = timeRange.split("-");
+            start = "start-" + start.replace(":", "");
+            end = "end-" + end.replace(":", "");
+            output.push(start + " " + end);
+        });
+        // console.log(output);
+        return output;
+    }
+
+    /**
+     * shortcut for getElementById
+     * @param {string} id - ID of the element to be accessed
+     * @returns {element} - Element that has the given ID
+     */
+    function id(id) {
+        return document.getElementById(id);
+    }
+
+    /**
+     * shortcut for querySelector
+     * @param {string} selector - selector of the element to be accessed
+     * @returns {element} - Element that corresponds to the selector given
+     */
+    function qs(selector) {
+        return document.querySelector(selector);
+    }
+
+    /**
+     * shortcut for querySelectorAll
+     * @param {string} selector - selector of the elements to be accessed
+     * @returns {array} - Array of elements that corresponds to the selector given
+     */
+    function qsa(selector) {
+        return document.querySelectorAll(selector);
+    }
+
+    /**
+     * shortcut for createElement
+     * @param {string} newTag - name of tag to be created
+     * @returns {element} - a newly created element with the given newTag
+     */
+    function gen(newTag) {
+        return document.createElement(newTag);
+    }
+
 
     return (
         <div className="allBody">
             <Header />
             <div id="sync-page-wrapper">
                 <section id="event-info">
-                    <h1 id="event-name">HCP</h1>
+                    <h1 id="event-name">{eventName}</h1>
                     <div id="availability-meter">
                     <div class="event meter-0"></div>
                     <div class="event meter-1"></div>
@@ -52,19 +153,19 @@ function Sync() {
                     <div class="time-marker">11 PM</div>
                     </section>
                     <section id="days">
-                        <div class="day">
+                        <div class="day-1">
                             <div class="date-title">
                                 <p class="date-num">14</p>
                                 <p class="date-day">Tues</p>
                             </div>
                             <div class="events">
-                                <div class="event start-1000 end-1130"></div>
+                                {/* <div class="event start-1000 end-1130"></div>
                                 <div class="event start-1100 end-1130"></div>
                                 <div class="event start-1230 end-1445"></div>
                                 <div class="event start-1230 end-1400"></div>
                                 <div class="event start-1530 end-1715"></div>
                                 <div class="event start-1530 end-1645"></div>
-                                <div class="event start-1830 end-2000"></div>
+                                <div class="event start-1830 end-2000"></div> */}
                             </div>
                         </div>
                         {/* <div class="day">
