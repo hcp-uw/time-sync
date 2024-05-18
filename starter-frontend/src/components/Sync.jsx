@@ -22,44 +22,127 @@ function Sync() {
     const currentURL = useLocation();
     const searchParams = new URLSearchParams(currentURL.search);
     const syncCode = searchParams.get('syncCode');
+    const [prevEventCount, setPrevEventCount] = useState(null);
 
+    /**
+     * Fuction used to fetch data and update the module-global constant holding the data
+     */
     useEffect(() => {
-        // Function to fetch data from Firestore
         const fetchData = async () => {
             // const snapshot = await db.collection(syncCode).get();
             const snapshot = await db.collection("84951").get();
             const newData = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-            // console.log(newData);
             setData(newData);
         };
-
-        fetchData(); // Call the function to fetch data when component mounts
-        // Clean up function to unsubscribe when component unmounts
-    //   return () => {
-    //     // unsubscribe
-    //   };
+        fetchData();
     }, []);
 
-    // // Move console.log(data) inside the useEffect hook after setData(newData)
+    /**
+     * Function to generate all user events when data is updated
+     */
     useEffect(() => {
-        console.log(data);
         qs(".day-1 .events").innerHTML = "";
+
         data.forEach(el => {
             if (el.id !== "Doc Info") {
-                generateUserEvents(el.calenderData);
+                generateUserEvents(el.calenderData, el.userName);
+                generateUserProfile(el.userName);
             }
         });
+        generateMeter();
+
     }, [data]);
 
+    /**
+     * Function to update "syncd-up" section when event hovered changes
+     */
+    useEffect(() => {
+        // id("days").removeEventListener("mousemove", handleMouseOver);
+        id("days").addEventListener("mousemove", handleMouseOver);
+        return () => {
+            if (id("days")) {
+                id("days").removeEventListener("mousemove", handleMouseOver);
+            }
+        }
+    }, [prevEventCount]);
+
+
+    /* ------- UPDATING EVENT NAME ------- */
     data.forEach(el => {
         if (el.id === "Doc Info") {
             eventName = el.eventName;
         }
     });
+    /* ------- UPDATING EVENT NAME ------- */
 
-    console.log("test:" + eventName);
 
-    function generateUserEvents(calendarData) {
+    function handleMouseOver(evt) {
+        const mouseX = evt.clientX;
+        const mouseY = evt.clientY;
+        const mouseHovered = document.elementsFromPoint(mouseX, mouseY);
+        const eventStack = mouseHovered.filter(element => element.classList.contains("event"));
+        const eventCount = eventStack.length;
+
+        if (eventCount !== prevEventCount) {
+            setPrevEventCount(eventCount);
+            let freeUsers = [];
+            eventStack.forEach(event => {
+                freeUsers.push(event.id);
+            });
+            updateUserStatus(freeUsers);
+        }
+    }
+
+    function generateMeter() {
+        const parent = id("availability-meter")
+        const r = qs(":root");
+        r.style.setProperty('--maxSync', data.length);
+        for (let i = 1; i < data.length; i++) {
+            let unit = gen("div");
+            unit.classList.add("event");
+            unit.classList.add("meter-" + i);
+            unit.textContent = i;
+            parent.appendChild(unit);
+        }
+    }
+
+    function updateUserStatus(freeUsers) {
+        qsa("#syncd-up > div").forEach(userProfile => {
+            if (freeUsers.includes(userProfile.id)){
+                userProfile.classList.remove("busy");
+                userProfile.querySelector("img").src = freeUser;
+                userProfile.querySelector("h2").textContent = "FREE";
+            } else {
+                userProfile.classList.add("busy");
+                userProfile.querySelector("img").src = busyUser;
+                userProfile.querySelector("h2").textContent = "BUSY";
+            }
+        });
+    }
+
+    function generateUserProfile(username) {
+        let parent = id("syncd-up");
+        let userProfile = gen("div");
+        let statusImg = gen("img");
+        let userDetails = gen("div");
+        let name = gen("p");
+        let status = gen("h2");
+        status.classList.add("user-status");
+        status.textContent = "BUSY";
+        name.classList.add("user-name");
+        name.textContent = username;
+        userDetails.appendChild(name);
+        userDetails.appendChild(status);
+        statusImg.src = busyUser;
+        userProfile.appendChild(statusImg);
+        userProfile.appendChild(userDetails);
+        userProfile.classList.add("user");
+        userProfile.classList.add("busy");
+        userProfile.id = username;
+        parent.append(userProfile);
+    }
+
+    function generateUserEvents(calendarData, username) {
         let formattedCalData = convertCalendarData(calendarData);
         let parent = qs(".day-1 .events");
         formattedCalData.forEach(timeRange => {
@@ -68,6 +151,7 @@ function Sync() {
             event.classList.add("event");
             event.classList.add(start);
             event.classList.add(end);
+            event.id = username;
             parent.appendChild(event);
         })
     }
@@ -128,11 +212,11 @@ function Sync() {
                 <section id="event-info">
                     <h1 id="event-name">{eventName}</h1>
                     <div id="availability-meter">
-                    <div class="event meter-0">0</div>
-                    <div class="event meter-1">1</div>
-                    <div class="event meter-2">2</div>
-                    <div class="event meter-3">3</div>
-                    {/* <div class="event meter-4"></div> */}
+                        <div class="event meter-0">0</div>
+                        {/* <div class="event meter-1">1</div>
+                        <div class="event meter-2">2</div>
+                        <div class="event meter-3">3</div>
+                        <div class="event meter-4"></div> */}
                     </div>
                 </section>
                 <section id="calendar">
@@ -165,13 +249,6 @@ function Sync() {
                                 <p class="date-day">Tues</p>
                             </div>
                             <div class="events">
-                                {/* <div class="event start-1000 end-1130"></div>
-                                <div class="event start-1100 end-1130"></div>
-                                <div class="event start-1230 end-1445"></div>
-                                <div class="event start-1230 end-1400"></div>
-                                <div class="event start-1530 end-1715"></div>
-                                <div class="event start-1530 end-1645"></div>
-                                <div class="event start-1830 end-2000"></div> */}
                             </div>
                         </div>
                         {/* <div class="day">
@@ -190,20 +267,6 @@ function Sync() {
                 </section>
                 <section id="syncd-up">
                     <h1>Sync'd Up!</h1>
-                    <div class="user">
-                    <img src={freeUser} alt="user-1 status"/>
-                    <div>
-                        <p class="user-name">Andrew Chen</p>
-                        <h2 class="user-status">FREE</h2>
-                    </div>
-                    </div>
-                    <div class="user">
-                    <img src={busyUser} alt="user-2 status"/>
-                    <div>
-                        <p class="user-name">Victor Liu</p>
-                        <h2 class="user-status">BUSY</h2>
-                    </div>
-                    </div>
                 </section>
             </div>
             <img class="blob1" src={blob1}/>
