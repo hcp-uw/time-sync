@@ -2,6 +2,10 @@
     box-sizing: border-box;
 } */
 
+:root {
+    --logoWidth: 15vw;
+}
+
 body {
     margin: 0;
 }
@@ -18,8 +22,16 @@ nav {
 }
 
 nav .title {
-    font-family: 'Pacifico' ;
-    font-size: 40px;
+    font-family: 'Pacifico', sans-serif ;
+    font-weight: 200;
+    font-size: 30px;
+    padding-left: 10px;
+}
+
+nav .title img {
+    width: var(--logoWidth);
+    margin-top: 30px;
+    padding-left: 10px;
 }
 
 nav ul {
@@ -46,8 +58,10 @@ nav li:hover a {
 }
 
 nav li img {
-    width: 45px;
-    height: 45px;
+    /* width: 45px;
+    height: 45px; */
+    width: 1.25em;
+    object-fit: contain;
 }
 
 nav a {
@@ -57,7 +71,9 @@ nav a {
 }
 
 nav > div {
+    width: var(--logoWidth);
     visibility: hidden;
+    padding-right: 5px;
 }
 
 .active {

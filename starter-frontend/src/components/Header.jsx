@@ -4,11 +4,15 @@ import { Link, NavLink } from 'react-router-dom';
 
 import joinImage from '../images/joinImage.png';
 import createImage from '../images/createImage.png';
+import logo from '../images/ee.svg';
 
 function Header() {
     return (
         <nav>
-            <Link to="/" className="title">TimeSync</Link>
+            <Link to="/" className="title">
+                {/* <img src={logo}></img> */}
+                <h1>TimeSync</h1>
+            </Link>
             <ul>
                 <li>
                     <img src={joinImage} alt="Join" />
@@ -19,7 +23,7 @@ function Header() {
                     <NavLink to="/create">Create</NavLink>
                 </li>
             </ul>
-            <div class="title">TimeSync</div>
+            <div class="placeholder"></div>
         </nav>
     );
 }

@@ -25,10 +25,10 @@ function Calender() {
     const syncCode = searchParams.get('syncCode');
     const name = searchParams.get('name');
     console.log("currnet data on calender is " + showCreate + " " + syncCode + " " + name);
-    
+
     /*
     State variable to hold the email in the input box
-    */ 
+    */
     const [email, setEmailValue] = useState('');
 
     // Function to handle sync change and update the state
@@ -69,7 +69,7 @@ function Calender() {
                             <img class="calenderImage" src={googleCalendar} alt="Google Calender" />
                         </a>
                         <a href="https://www.microsoft.com/en-us/microsoft-365/outlook/email-and-calendar-software-microsoft-outlook">
-                            <img class="calenderImage" src={microsoftOutlook} alt="Microsoft Outlook" />                        
+                            <img class="calenderImage" src={microsoftOutlook} alt="Microsoft Outlook" />
                         </a>
                         <input type="text" class="sync_code_box" placeholder="Calender Link" readonly onChange={handleEmailChange}></input>
                     </div>
@@ -86,11 +86,11 @@ function Calender() {
                             <label for="calendar1">
                                 <img class="calenderImage" src={googleCalendar} alt="Google Calender" />
                             </label>
-
+{/*
                             <input type="radio" id="calendar2" name="calendar"></input>
                             <label for="calendar2">
                                 <img class="calenderImage" src={microsoftOutlook} alt="Microsoft Outlook" />
-                            </label>
+                            </label> */}
                         </div>
 
                         <input type="text" class="sync_code_box" placeholder="Calender Link" readonly onChange={handleEmailChange}></input>
@@ -98,20 +98,20 @@ function Calender() {
 
                         {/* TODO: HAVE OPTIONS HERE */}
                         <div class="duration_options">
-                            <input type="radio" id="option1" name="duration" value="1day"></input>
+                            <input type="radio" id="option1" name="duration" value="1day" checked="checked"></input>
                             <label for="option1">1 day</label>
 
-                            <input type="radio" id="option2" name="duration" value="3days"></input>
+                            {/* <input type="radio" id="option2" name="duration" value="3days"></input>
                             <label for="option2">3 days</label>
 
                             <input type="radio" id="option3" name="duration" value="7days"></input>
-                            <label for="option3">7 days</label>
+                            <label for="option3">7 days</label> */}
                         </div>
                     </div>
                     <button class="join_button" onClick={handleSyncButtonClick}>Generate!</button>
                     </>
                 )}
-                
+
             </div>
             <img class="blob1" src={blob1}/>
             <img class="blob2" src={blob2}/>
@@ -119,7 +119,7 @@ function Calender() {
             <img class="blob4" src={blob4}/>
             <img class="blob5" src={blob5}/>
         </div>
-        
+
     );
 }
 
