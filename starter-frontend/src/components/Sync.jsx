@@ -1,119 +1,274 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import './Sync.css';
+import './SyncTimes.css'
 import Header from '../components/Header'
 import blob1 from '../images/Purple blob.png';
 import blob2 from '../images/Green blob.png';
 import blob3 from '../images/Purple blob 2.png';
 import blob4 from '../images/Purple blob 3.png';
 import blob5 from '../images/Green blob 2.png';
+import busyUser from '../images/busyUser.png';
+import freeUser from '../images/freeUser.png';
 
-import googleCalendar from '../images/googleCalender.png';
-import microsoftOutlook from '../images/outlookCalender.png';
+import 'firebase/compat/firestore';
+import { db } from "../config/firebase.js";
 
 function Sync() {
+
+    let eventName = "";
+
+    const [data, setData] = useState([]);
     const currentURL = useLocation();
     const searchParams = new URLSearchParams(currentURL.search);
-                    // .../calender?create=bool&syncCode=5int&name=string&users=int
+    const syncCode = searchParams.get('syncCode');
+    const [prevEventCount, setPrevEventCount] = useState(null);
 
-    // TODO: change showCreate to be a const
-    //let showCreate = searchParams.get('create') === 'true';
-    //const syncCode = searchParams.get('syncCode');
-    //const name = searchParams.get('name');
-    //const users = searchParams.get('users');
-    //console.log("current data is " + showCreate + " " + syncCode + " " + name + " " + users);
-    // showCreate = false;
+    /**
+     * Fuction used to fetch data and update the module-global constant holding the data
+     */
+    useEffect(() => {
+        const fetchData = async () => {
+            // const snapshot = await db.collection(syncCode).get();
+            const snapshot = await db.collection("84951").get();
+            const newData = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+            setData(newData);
+        };
+        fetchData();
+    }, []);
 
-    const [showCreate, setShowCreate] = useState(searchParams.get('create') === 'true');
-    const [syncCode, setSyncCode] = useState(searchParams.get('syncCode'));
-    const [name, setName] = useState(searchParams.get('name'));
-    const [users, setUsers] = useState(searchParams.get('users'));
+    /**
+     * Function to generate all user events when data is updated
+     */
+    useEffect(() => {
+        qs(".day-1 .events").innerHTML = "";
 
-    
-    const [calenderData, setCalenderData] = useState(Array.from({ length: 24 }, () => Array(60).fill(0))); // Initialize sum as a 2D array of [24][60] filled with 0s
-    const [isInitialized, setIsInitialized] = useState(false);
+        data.forEach(el => {
+            if (el.id !== "Doc Info") {
+                generateUserEvents(el.calenderData, el.userName);
+                generateUserProfile(el.userName);
+            }
+        });
+        generateMeter();
 
-    const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    const currentDayOfWeek = daysOfWeek[new Date().getDay()];
+    }, [data]);
 
-    
-    const initializeCalendar = () => {
-        let sumArray = Array.from({ length: 24 }, () => Array(60).fill(0)); // Initialize sum as a 2D array of [24][60] filled with 0s
-
-        for (let i = 0; i < users; i++) {
-            const randomCalender = fill2DArray();
-            sumArray = sumArray.map((row, i) => row.map((val, j) => val + randomCalender[i][j]));
+    /**
+     * Function to update "syncd-up" section when event hovered changes
+     */
+    useEffect(() => {
+        // id("days").removeEventListener("mousemove", handleMouseOver);
+        id("days").addEventListener("mousemove", handleMouseOver);
+        return () => {
+            if (id("days")) {
+                id("days").removeEventListener("mousemove", handleMouseOver);
+            }
         }
+    }, [prevEventCount]);
 
-        setCalenderData(sumArray);
-        setIsInitialized(true);
+
+    /* ------- UPDATING EVENT NAME ------- */
+    data.forEach(el => {
+        if (el.id === "Doc Info") {
+            eventName = el.eventName;
+        }
+    });
+    /* ------- UPDATING EVENT NAME ------- */
+
+
+    function handleMouseOver(evt) {
+        const mouseX = evt.clientX;
+        const mouseY = evt.clientY;
+        const mouseHovered = document.elementsFromPoint(mouseX, mouseY);
+        const eventStack = mouseHovered.filter(element => element.classList.contains("event"));
+        const eventCount = eventStack.length;
+
+        if (eventCount !== prevEventCount) {
+            setPrevEventCount(eventCount);
+            let freeUsers = [];
+            eventStack.forEach(event => {
+                freeUsers.push(event.id);
+            });
+            updateUserStatus(freeUsers);
+        }
     }
 
-    const fill2DArray = () => {
-        const array = [];
-        for (let i = 0; i < 24; i++) {
-            const row = [];
-            let blockValue = Math.floor(Math.random() * 2); // Generate a random value for the block
-            for (let j = 0; j < 60; j++) {
-                // Fill the block with the same value
-                row.push(blockValue);
-                // Change the block value every 5 elements
-                if ((j + 1) % 5 === 0) {
-                    blockValue = Math.floor(Math.random() * 2);
-                }
-            }
-            array.push(row);
+    function generateMeter() {
+        const parent = id("availability-meter")
+        const r = qs(":root");
+        r.style.setProperty('--maxSync', data.length);
+        for (let i = 1; i < data.length; i++) {
+            let unit = gen("div");
+            unit.classList.add("event");
+            unit.classList.add("meter-" + i);
+            unit.textContent = i;
+            parent.appendChild(unit);
         }
-        return array;
-    };
+    }
 
-    useEffect(() => {
-        if (!isInitialized) {
-            initializeCalendar();
-        } else {
-            console.log("rerender");
-            console.log("calender data is " + calenderData);
-            console.log();
-        }
-    }, []);
+    function updateUserStatus(freeUsers) {
+        qsa("#syncd-up > div").forEach(userProfile => {
+            if (freeUsers.includes(userProfile.id)){
+                userProfile.classList.remove("busy");
+                userProfile.querySelector("img").src = freeUser;
+                userProfile.querySelector("h2").textContent = "FREE";
+            } else {
+                userProfile.classList.add("busy");
+                userProfile.querySelector("img").src = busyUser;
+                userProfile.querySelector("h2").textContent = "BUSY";
+            }
+        });
+    }
+
+    function generateUserProfile(username) {
+        let parent = id("syncd-up");
+        let userProfile = gen("div");
+        let statusImg = gen("img");
+        let userDetails = gen("div");
+        let name = gen("p");
+        let status = gen("h2");
+        status.classList.add("user-status");
+        status.textContent = "BUSY";
+        name.classList.add("user-name");
+        name.textContent = username;
+        userDetails.appendChild(name);
+        userDetails.appendChild(status);
+        statusImg.src = busyUser;
+        userProfile.appendChild(statusImg);
+        userProfile.appendChild(userDetails);
+        userProfile.classList.add("user");
+        userProfile.classList.add("busy");
+        userProfile.id = username;
+        parent.append(userProfile);
+    }
+
+    function generateUserEvents(calendarData, username) {
+        let formattedCalData = convertCalendarData(calendarData);
+        let parent = qs(".day-1 .events");
+        formattedCalData.forEach(timeRange => {
+            let [start, end] = timeRange.split(" ");
+            let event = gen("div");
+            event.classList.add("event");
+            event.classList.add(start);
+            event.classList.add(end);
+            event.id = username;
+            parent.appendChild(event);
+        })
+    }
+
+    function convertCalendarData(calendarData) {
+        let output = [];
+        calendarData.forEach(timeRange => {
+            let [start, end] = timeRange.split("-");
+            start = "start-" + start.replace(":", "");
+            end = "end-" + end.replace(":", "");
+            output.push(start + " " + end);
+        });
+        // console.log(output);
+        return output;
+    }
+
+    /**
+     * shortcut for getElementById
+     * @param {string} id - ID of the element to be accessed
+     * @returns {element} - Element that has the given ID
+     */
+    function id(id) {
+        return document.getElementById(id);
+    }
+
+    /**
+     * shortcut for querySelector
+     * @param {string} selector - selector of the element to be accessed
+     * @returns {element} - Element that corresponds to the selector given
+     */
+    function qs(selector) {
+        return document.querySelector(selector);
+    }
+
+    /**
+     * shortcut for querySelectorAll
+     * @param {string} selector - selector of the elements to be accessed
+     * @returns {array} - Array of elements that corresponds to the selector given
+     */
+    function qsa(selector) {
+        return document.querySelectorAll(selector);
+    }
+
+    /**
+     * shortcut for createElement
+     * @param {string} newTag - name of tag to be created
+     * @returns {element} - a newly created element with the given newTag
+     */
+    function gen(newTag) {
+        return document.createElement(newTag);
+    }
 
 
     return (
-        // Div for the entire page besides header
         <div className="allBody">
             <Header />
-            {/* Text at top of page */}
-            <t>Sync Page</t>
-
-            <div style={{ display: 'grid', gridTemplateColumns: '300px 1fr', gridGap: '2px' }}>
-            <div style={{ display: 'grid', gridTemplateRows: 'repeat(24, 300px)', gridGap: '0', backgroundColor: 'rgba(0, 0, 0, 0.1)' }}>
-                {calenderData.map((row, rowIndex) => (
-                    <div key={`hour-${rowIndex}`} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                        {rowIndex}
+            <div id="sync-page-wrapper">
+                <section id="event-info">
+                    <h1 id="event-name">{eventName}</h1>
+                    <div id="availability-meter">
+                        <div class="event meter-0">0</div>
+                        {/* <div class="event meter-1">1</div>
+                        <div class="event meter-2">2</div>
+                        <div class="event meter-3">3</div>
+                        <div class="event meter-4"></div> */}
                     </div>
-                ))}
-            </div>
-                <div style={{ display: 'grid', gridTemplateRows: 'repeat(60, 5px)', gridGap: '0', gridTemplateColumns: '300px' }}>
-                {calenderData.map((row, rowIndex) => (
-                    row.map((value, colIndex) => (
-                        <div
-                            key={`cell-${rowIndex}-${colIndex}`}
-                            style={{
-                                width: '300px',
-                                height: '5px',
-                                backgroundColor: `rgba(0, 0, 0, ${value / users})`,
-                            }}
-                        />
-                    ))
-                ))}
-                    {Array.from({ length: 1 }, (_, i) => (
-                        <div key={`hour-label-${i}`} style={{ width: '60px', height: '1px', backgroundColor: 'rgba(0, 0, 0, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                            {i}:00
+                </section>
+                <section id="calendar">
+                    <section id="timeline">
+                    <div class="time-marker" id="spacer">PST</div>
+                    <div class="time-marker">5 AM</div>
+                    <div class="time-marker">6 AM</div>
+                    <div class="time-marker">7 AM</div>
+                    <div class="time-marker">8 AM</div>
+                    <div class="time-marker">9 AM</div>
+                    <div class="time-marker">10 AM</div>
+                    <div class="time-marker">11 AM</div>
+                    <div class="time-marker">12 PM</div>
+                    <div class="time-marker">1 PM</div>
+                    <div class="time-marker">2 PM</div>
+                    <div class="time-marker">3 PM</div>
+                    <div class="time-marker">4 PM</div>
+                    <div class="time-marker">5 PM</div>
+                    <div class="time-marker">6 PM</div>
+                    <div class="time-marker">7 PM</div>
+                    <div class="time-marker">8 PM</div>
+                    <div class="time-marker">9 PM</div>
+                    <div class="time-marker">10 PM</div>
+                    <div class="time-marker">11 PM</div>
+                    </section>
+                    <section id="days">
+                        <div class="day-1">
+                            <div class="date-title">
+                                <p class="date-num">14</p>
+                                <p class="date-day">Tues</p>
+                            </div>
+                            <div class="events">
+                            </div>
                         </div>
-                    ))}
-                </div>
+                        {/* <div class="day">
+                                <div class="date-title">
+                                <p class="date-num">15</p>
+                                <p class="date-day">Wed</p>
+                            </div>
+                            <div class="events">
+                                <div class="event start-1330 end-1830"></div>
+                                <div class="event start-14 end-17"></div>
+                                <div class="event start-1515 end-16"></div>
+                                <div class="event start-18 end-19"></div>
+                            </div>
+                        </div> */}
+                    </section>
+                </section>
+                <section id="syncd-up">
+                    <h1>Sync'd Up!</h1>
+                </section>
             </div>
-
             <img class="blob1" src={blob1}/>
             <img class="blob2" src={blob2}/>
             <img class="blob3" src={blob3}/>
@@ -121,24 +276,6 @@ function Sync() {
             <img class="blob5" src={blob5}/>
         </div>
     );
-
-    /*
-        <div className="calendar">
-                {calenderData.map((row, rowIndex) => (
-                    <div key={rowIndex} className="row">
-                    {row.map((colorStrength, colIndex) => (
-                        <div
-                        key={colIndex}
-                        className="day"
-                        style={{ backgroundColor: `rgba(0, 0, 255, ${colorStrength / 10})` }}
-                        >
-                        {colorStrength}
-                        </div>
-                    ))}
-                    </div>
-                ))}
-            </div>
-    */
 }
 
 export default Sync

@@ -16,7 +16,7 @@ function JoinBox() {
     State variable to hold the input value (holds the "state" of the input
     must have setInputValue to update the state, is a react thing)
     Have seperate variables to know which input box to display
-    */ 
+    */
     const [syncCode, setSyncCodeValue] = useState('');
     const [showSyncCode, setShowSyncCode] = useState(true);
     const [name, setNameValue] = useState('');
@@ -72,14 +72,14 @@ function JoinBox() {
             // .../calender?create=bool&syncCode=5int&name=string&users=int
         } else {
             alert("Please enter a name of at least 1 character");
-        }        
+        }
     };
 
     const uploadData = async () => {
         // The data uploaded for each person to Firebase
         const personData = {
             userName: name,
-            calenderData: ["8:00-9:30", "11:00-12:30", "14:00-15:30", "17:00-18:30", "19:30-20:00"]
+            calenderData: ["09:45-11:15", "12:00-13:00", "15:00-16:15", "20:30-23:00"]
         };
 
         const collectionRef = await db.collection(syncCode.toString()); // TEST CODE (20001 is test syncCode data)
@@ -115,7 +115,7 @@ function JoinBox() {
                     <button class="enter_button" onClick={handleNameButtonClick}>OK, go!</button>
                     </div>
                 )}
-                
+
             </div>
             <img class="blob1" src={blob1}/>
             <img class="blob2" src={blob2}/>
@@ -123,7 +123,7 @@ function JoinBox() {
             <img class="blob4" src={blob4}/>
             <img class="blob5" src={blob5}/>
         </div>
-        
+
     );
 }
 

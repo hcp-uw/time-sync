@@ -7,7 +7,7 @@
   --numInts: calc(var(--numHours) * 4); /* 15 min intervals for events */
   --hourHeight: 60px;
   --intHeight: calc(var(--hourHeight) / 4);
-  --calBgColor: rgb(255, 226, 255);
+  --calBgColor: #fff1f8;
   --eventColor: rgba(214, 51, 255, 0.25);
 }
 
@@ -21,18 +21,12 @@
 }
 
 #event-info {
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
-  justify-content: center;
-  height: 90vh;
+  border-right: 1px solid black;
 }
 
 #event-info h1 {
-  /* font-family: system-ui, sans-serif; */
   font-family: "Preahvihear", sans-serif;
-  font-weight: 100;
-  font-size: 2.5vw;
-  margin: 20px 0;
-  text-align: center;
+  font-size: 50px;
 }
 
 #availability-meter {
@@ -44,16 +38,10 @@
   grid-template-rows: repeat(calc(var(--maxSync) + 1), calc(var(--meterHeight) / (var(--maxSync)+1)));
   border-radius: 5px;
   background-color: var(--calBgColor);
-  margin: 5% 0;
-  /* position: absolute;
-  bottom: 5%; */
 }
 
 #availability-meter .event {
   grid-row-start: 1;
-  font-family: "Questrial", sans-serif;
-  display: flex;
-  align-items: last baseline;
 }
 
 #availability-meter .event:hover{
@@ -78,30 +66,6 @@
 .meter-4 {
   grid-row-end: calc(var(--maxSync) - 3);
 }
-.meter-5 {
-  grid-row-end: calc(var(--maxSync) - 4);
-}
-.meter-6 {
-  grid-row-end: calc(var(--maxSync) - 5);
-}
-.meter-7 {
-  grid-row-end: calc(var(--maxSync) - 6);
-}
-.meter-8 {
-  grid-row-end: calc(var(--maxSync) - 7);
-}
-.meter-9 {
-  grid-row-end: calc(var(--maxSync) - 8);
-}
-.meter-10 {
-  grid-row-end: calc(var(--maxSync) - 9);
-}
-.meter-11 {
-  grid-row-end: calc(var(--maxSync) - 10);
-}
-.meter-12 {
-  grid-row-end: calc(var(--maxSync) - 11);
-}
 
 
 /* ------- CALENDAR SECTION ------- */
@@ -110,10 +74,10 @@
   display: grid;
   gap: 10px;
   grid-template-columns: auto 1fr;
-  padding: 2rem;
+  margin: 2rem;
   width: var(--calendarWidth);
   overflow-y: auto;
-  height: 87%;
+  height: 95%;
 }
 
 #timeline {
@@ -122,8 +86,7 @@
 }
 
 #spacer, .date-title {
-  height: 60px;
-  position: sticky;
+  height: 60px
 }
 
 #spacer {
@@ -181,15 +144,14 @@
   grid-column: 1 / 1;
 }
 
-/* .event:hover {
+.event:hover {
   border: 1px solid black;
-} */
+}
 
 /* ------- SYNC'D UP SECTION ------- */
 
 #syncd-up {
-  border-left: 1px solid rgba(0, 0, 0, 0.1);
-  overflow-y: auto;
+  border-left: 1px solid black;
 }
 
 #syncd-up h1 {
@@ -200,24 +162,17 @@
 
 .user {
   margin: 5%;
-  width: 80%;
+  width: 250px;
+  border: 1px solid black;
   border-radius: 15px;
-  padding: 5%;
+  padding: 2% 0;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  box-sizing: border-box;
-  border: 2px solid rgb(245, 255, 245);
-  background-color: rgba(245, 255, 246, 0.5);
-}
-
-.busy {
-  border: 2px solid rgb(255, 217, 217);
-  background-color: rgba(254, 233, 233, 0.5);
 }
 
 .user img {
-  width: 25%;
+  width: 20%;
 }
 
 .user div {
@@ -227,24 +182,23 @@
 
 .user-name {
   margin: 0;
-  font-size: 1.5vw;
+  font-size: 120%;
 }
 
 .user-status {
   letter-spacing: .2em;
-  font-size: 2.5vw;
+  font-size: 3em;
   text-indent: .2em;
   margin: 0;
   padding: 0;
 }
 
-#sync-page-wrapper {
+body {
   font-family: system-ui, sans-serif;
   display: flex;
   justify-content: center;
   overflow: hidden;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.9);
 }
 
 html {

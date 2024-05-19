@@ -16,7 +16,7 @@ function CreateBox() {
     State variable to hold the input value (holds the "state" of the input
     must have setInputValue to update the state, is a react thing)
     Have seperate variables to know which input box to display
-    */ 
+    */
     const [name, setNameValue] = useState('');
     const [showName, setShowName] = useState(true);
     const [eventName, setEventNameValue] = useState('');
@@ -46,14 +46,14 @@ function CreateBox() {
                 }, 500);
             } else {
                 alert("Please enter a name of at least 1 character");
-            }   
+            }
         } else {
             // Checks for the event name entered
             if (eventName.length > 0) {
                 const syncCode = await generateUniqueSyncCode();
                 // If passes all checks, redirect to calender page after adding data to firebase
                 // Upload data to firebase
-                await uploadData(syncCode); 
+                await uploadData(syncCode);
                 window.location.href = '/calender' + '?create=true' + '&syncCode=' + syncCode + '&name=' + name + '&create=true';
                 // .../calender?create=bool&syncCode=5int&name=string&users=int
             } else {
@@ -92,7 +92,7 @@ function CreateBox() {
 
         const personData = {
             userName: name,
-            calenderData: ["8:00-9:30", "11:00-12:30", "14:00-15:30", "17:00-18:30", "19:30-20:00"]
+            calenderData: ["08:00-09:30", "11:00-12:30", "14:00-15:30", "17:00-18:30", "19:30-20:00"]
         };
 
         console.log("Uploading data to firebase, data is " + docInfoData);
@@ -129,7 +129,7 @@ function CreateBox() {
             <img class="blob4" src={blob4}/>
             <img class="blob5" src={blob5}/>
         </div>
-        
+
     );
 
 
