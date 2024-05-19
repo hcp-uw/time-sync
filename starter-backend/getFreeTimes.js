@@ -1,7 +1,7 @@
 const axios = require('axios');
 
 // Your Google Calendar API key (don't put this on github, it's pay to use)
-const apiKey = 'AIzaSyCFivIUfU4Hi4eepo2z5etJkpHvgdEnh6s';
+const apiKey = '';
 
 // Function to extract the calendar ID from a Google Calendar link
 function extractCalendarId(calendarLink) {
