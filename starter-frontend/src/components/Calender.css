@@ -9,7 +9,7 @@
 
   .calender_join_box {
     width: 480px; /* Set desired width of the box */
-    height: 190px; /* Set desired height of the box */
+    height: 230px; /* Set desired height of the box */
     background-color: rgba(0, 0, 0, 0.16); /* Set background color */
     border: 5px solid #5700C7; /* Optional: Add border */
     border-radius: 15px;

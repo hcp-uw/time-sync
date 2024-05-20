@@ -29,8 +29,8 @@ function Sync() {
      */
     useEffect(() => {
         const fetchData = async () => {
-            // const snapshot = await db.collection(syncCode).get();
-            const snapshot = await db.collection("84951").get();
+            const snapshot = await db.collection(syncCode).get();
+            // const snapshot = await db.collection("84951").get();
             const newData = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
             setData(newData);
         };
