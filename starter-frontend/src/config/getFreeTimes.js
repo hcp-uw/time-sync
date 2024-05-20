@@ -1,7 +1,9 @@
+// FILE IS NOT USED AT ALL
+
 // Your Google Calendar API key (don't put this on github, it's pay to use)
+const axios = require('axios');
 
 async function findFreeTime(calendarLink) {
-    const axios = require('axios');
 
     const apiKey = 'AIzaSyCFivIUfU4Hi4eepo2z5etJkpHvgdEnh6s';
 
@@ -14,10 +16,12 @@ async function findFreeTime(calendarLink) {
 
     // Function to fetch events from a Google Calendar using the Calendar API
     async function fetchCalendarEvents(calendarId, apiKey) {
+        console.log("ran");
         const url = `https://www.googleapis.com/calendar/v3/calendars/${calendarId}/events?key=${apiKey}&singleEvents=true&maxResults=2500`;
         try {
             const response = await axios.get(url);
             if (response.status === 200) {
+                console.log('Events fetched successfully');
                 return response.data;
             } else {
                 console.error('Error: Unexpected response status', response.status);
@@ -103,7 +107,9 @@ async function findFreeTime(calendarLink) {
     const calendarId = extractCalendarId(calendarLink);
 
     if (calendarId) {
+        console.log("calenderID: " + calendarId + " and apiKey: " + apiKey);
         const eventsData = await fetchCalendarEvents(calendarId, apiKey);
+        console.log("Events Data: " + eventsData + " and eventData.items: ");
         if (eventsData && eventsData.items) {
             const eventsByDay = {};
             eventsData.items.forEach(event => {
