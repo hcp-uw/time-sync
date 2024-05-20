@@ -8,11 +8,20 @@ import blob3 from '../images/Purple blob 2.png';
 import blob4 from '../images/Purple blob 3.png';
 import blob5 from '../images/Green blob 2.png';
 
-//import 'firebase/compat/firestore';
-//import { db } from "./firebase";
+import axios from 'axios';
 
 import googleCalendar from '../images/googleCalender.png';
 import microsoftOutlook from '../images/outlookCalender.png';
+
+// import { findFreeTime } from '../../../starter-backend/getFreeTimes';
+
+import findFreeTime from '../config/getFreeTimes';
+// const findFreeTime = require('../config/getFreeTimes');
+
+//import 'firebase/compat/firestore';
+//import { db } from "./firebase";
+
+
 
 function Calender() {
     const currentURL = useLocation();
@@ -37,10 +46,14 @@ function Calender() {
     };
 
     // Function to handle button click
-    const handleSyncButtonClick = () => {
-        // Button logic here, syncCode must be 5 digits and an int
-        if (typeof email === 'string' && email.trim() !== '' && email.includes('@')) {
+    const handleSyncButtonClick = async () => {
+        // Button logic here, email must have an @
+        if (typeof email === 'string' && email.trim() !== '' && email.startsWith('https://calendar.google.com/calendar/embed?src=')) {
             const randUsers = Math.floor(Math.random() * 10) + 1;
+
+            //const axios = require('axios');
+            const freeTimes = await findFreeTime(email);
+            console.log("freeTimes: " + freeTimes);
             // If passes all checks, redirect to sync page
             window.location.href = '/sync' + '?create=' + showCreate + '&syncCode=' + syncCode + '&name=' + name + '&users=' + randUsers;
         } else {

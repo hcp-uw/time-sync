@@ -1,9 +1,10 @@
-const axios = require('axios');
-
 // Your Google Calendar API key (don't put this on github, it's pay to use)
-const apiKey = '';
 
-export async function findFreeTime(calendarLink) {
+async function findFreeTime(calendarLink) {
+    const axios = require('axios');
+
+    const apiKey = 'AIzaSyCFivIUfU4Hi4eepo2z5etJkpHvgdEnh6s';
+
     // Function to extract the calendar ID from a Google Calendar link
     function extractCalendarId(calendarLink) {
         const regex = /src=([^&]+)/;
@@ -137,6 +138,7 @@ export async function findFreeTime(calendarLink) {
 
             // Print array of free times 
             console.log('Free Times Today:', getAvailability(eventsToday));
+            return getAvailability(eventsToday);
 
         } else {
             console.log('Failed to fetch events or no events found.');
@@ -149,3 +151,5 @@ export async function findFreeTime(calendarLink) {
 // Example usage
 const calendarLink = 'https://calendar.google.com/calendar/embed?src=hfkcspg4u31mb4kph4h22dogoc%40group.calendar.google.com&ctz=America%2FLos_Angeles';
 findFreeTime(calendarLink);
+
+module.exports = findFreeTime;
