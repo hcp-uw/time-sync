@@ -44,7 +44,7 @@ function Calender() {
     const handleEmailChange = (e) => {
         email = "";
         email = e.target.value;
-        // console.log("email = " + email);
+        console.log("email = " + email);
     };
 
     // Function to handle button click
