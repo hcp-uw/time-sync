@@ -246,7 +246,7 @@ function Sync() {
                     <section id="days">
                         <div class="day-1">
                             <div class="date-title">
-                                <p class="date-num">14</p>
+                                <p class="date-num">21</p>
                                 <p class="date-day">Tues</p>
                             </div>
                             <div class="events">
