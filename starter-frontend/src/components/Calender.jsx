@@ -1,6 +1,6 @@
 /* global doc, setDoc */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import './Calender.css';
 import Header from '../components/Header'
@@ -36,18 +36,21 @@ function Calender() {
     /*
     State variable to hold the email in the input box
     */
-    const [email, setEmailValue] = useState('');
-    const [freeTimes, setFreeTimes] = useState([]);
+    // const [email, setEmailValue] = useState('');
+    let email = "";
 
     // Function to handle sync change and update the state
+
     const handleEmailChange = (e) => {
-        setEmailValue(e.target.value);
+        email = "";
+        email = e.target.value;
+        // console.log("email = " + email);
     };
 
     // Function to handle button click
     const handleSyncButtonClick = async () => {
         // Button logic here, email must have an @
-        if (typeof email === 'string' && email.trim() !== '' && email.startsWith('https://calendar.google.com/calendar/embed?src=')) {
+        if (typeof email === 'string' && email.trim() !== '' && email.startsWith('https://calendar.google.com/calendar/embed?src=')){
             console.log("email submitted was: " + email);
             await uploadCalendarData(email);
 
@@ -82,15 +85,17 @@ function Calender() {
 
                 const currentDate = new Date().toLocaleDateString('en-US');
                 const eventsToday = eventsByDay[currentDate] || [];
+                // console.log("AHHHHHH " + eventsToday);
 
-                setFreeTimes(getAvailability(eventsToday));
-                
-                console.log("updatedFIrebase maybe");
+                // const handleUpdateFreeTimes = () => {
+                const newFreeTimes = getAvailability(eventsToday);
+                console.log("New freeTimes: " + newFreeTimes);
+                updateFirebaseWithFreeTimes(newFreeTimes);
+                // };
 
-                console.log("freetimes: " + freeTimes);
+                // handleUpdateFreeTimes();
 
                 // Update Firebase with freeTimes
-                updateFirebaseWithFreeTimes();
                 return;
             } else {
                 console.log('Failed to fetch events or no events found.');
@@ -182,20 +187,20 @@ function Calender() {
         });
     };
 
-    const updateFirebaseWithFreeTimes = async () => {
+    const updateFirebaseWithFreeTimes = async (freeTimes) => {
         try {
             // const docRef = doc(db, '20001', 'Vic');
             // await setDoc(docRef, { CalendarData: freeTimes }, { merge: true });
             // console.log('Firebase updated successfully');
-            //const collectionRef = await db.collection(syncCode.toString());
-            const collectionRef = await db.collection("20001");
+            const collectionRef = await db.collection(syncCode.toString());
+            // const collectionRef = await db.collection("20001");
             collectionRef.doc(name).set({ calenderData: freeTimes }, { merge: true });
         } catch (error) {
             console.error('Error updating Firebase:', error);
         }
     };
 
-    
+
     // RETURN FUNCTION FOR RENDERING
     return (
         // Div for the entire page besides header
@@ -203,7 +208,7 @@ function Calender() {
             <TestFreeTimes calendarLink={email} />
             <Header />
             {/* Text at top of page */}
-            <t>Calender Page</t>
+            {/* <t>Calender Page</t> */}
 
             {/* Div for overall centered box */}
             <div class="container">

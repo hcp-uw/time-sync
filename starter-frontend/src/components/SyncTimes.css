@@ -2,6 +2,10 @@
   --tempStart: 1;
 }
 
+.start-0000 {
+  grid-row-start: calc(var(--tempStart));
+}
+
 .start-0500 {
   grid-row-start: calc(var(--tempStart));
 }
@@ -582,4 +586,20 @@
 
 .end-2300 {
   grid-row-end: calc(var(--tempStart) + 72);
+}
+
+.end-2315 {
+  grid-row-end: calc(var(--tempStart) + 73);
+}
+
+.end-2330 {
+  grid-row-end: calc(var(--tempStart) + 74);
+}
+
+.end-2345 {
+  grid-row-end: calc(var(--tempStart) + 75);
+}
+
+.end-2400 {
+  grid-row-end: calc(var(--tempStart) + 76);
 }

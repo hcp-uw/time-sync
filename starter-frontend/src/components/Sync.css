@@ -35,6 +35,18 @@
   text-align: center;
 }
 
+#sync-code {
+  font-family: "Preahvihear", sans-serif;
+  font-weight: 100;
+  font-size: 1.5vw;
+  margin: 0px 0;
+  text-align: center;
+}
+
+#sync-code span {
+  text-decoration: underline;
+}
+
 #availability-meter {
   height: var(--meterHeight);
   border: 2px solid black;
