@@ -93,7 +93,7 @@ function JoinBox() {
         <div className="allBody">
             <Header />
             {/* Text at top of page */}
-            <t>Join Page</t>
+            {/* <t>Join Page</t> */}
             {/* Div for overall centered box */}
             <div class="container">
                 {/* Title */}

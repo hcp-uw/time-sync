@@ -211,6 +211,7 @@ function Sync() {
             <div id="sync-page-wrapper">
                 <section id="event-info">
                     <h1 id="event-name">{eventName}</h1>
+                    <h2 id="sync-code">Sync Code: <span>{syncCode}</span></h2>
                     <div id="availability-meter">
                         <div class="event meter-0">0</div>
                         {/* <div class="event meter-1">1</div>

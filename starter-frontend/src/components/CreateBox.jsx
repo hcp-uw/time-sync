@@ -97,8 +97,8 @@ function CreateBox() {
 
         console.log("Uploading data to firebase, data is " + docInfoData);
 
-        const collectionRef = await db.collection("20001"); // TEST CODE (20001 is test syncCode data)
-        // const collectionRef = db.collection(syncCode.toString()); // REAL CODE
+        // const collectionRef = await db.collection("20001"); // TEST CODE (20001 is test syncCode data)
+        const collectionRef = db.collection(syncCode.toString()); // REAL CODE
 
         // For anything through create page, new collection must be created
         collectionRef.doc("Doc Info").set(docInfoData); // Create a Doc Info document to hold all group data
@@ -109,7 +109,7 @@ function CreateBox() {
         // Div for entire page minus header, will inherit background color
         <div className="allBody">
             <Header />
-            <t>Create Page</t>
+            {/* <t>Create Page</t> */}
 
             <div class="container">
                 {showName && (
