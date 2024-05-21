@@ -149,43 +149,50 @@ function Calender() {
     const getAvailability = (eventTimes) => {
         const fullDayStart = 0;
         const fullDayEnd = 24 * 60; // in minutes
-
+    
         const timeToMinutes = (time) => {
             const [hours, minutes = "00"] = time.split(":").map(Number);
             return hours * 60 + minutes;
         };
-
+    
         const minutesToTime = (minutes) => {
             const hours = Math.floor(minutes / 60);
             const mins = minutes % 60;
             return `${String(hours).padStart(2, '0')}:${String(mins).padStart(2, '0')}`;
         };
-
+    
+        const roundUpToNearest15 = (minutes) => {
+            return Math.ceil(minutes / 15) * 15;
+        };
+    
         const eventMinutes = eventTimes.flatMap(event => {
             const [start, end] = event.split('-').map(t => timeToMinutes(t.replace("pm", "")));
             return [[start, end]];
         });
-
+    
         eventMinutes.sort((a, b) => a[0] - b[0]);
-
+    
         let availableTimes = [];
         let currentTime = fullDayStart;
-
+    
         for (let [start, end] of eventMinutes) {
+            start = roundUpToNearest15(start);  // Ensure free time starts after the rounded start time
             if (currentTime < start) {
                 availableTimes.push([currentTime, start]);
             }
-            currentTime = Math.max(currentTime, end);
+            currentTime = Math.max(currentTime, roundUpToNearest15(end));  // Ensure free time starts after the rounded end time
         }
-
+    
         if (currentTime < fullDayEnd) {
             availableTimes.push([currentTime, fullDayEnd]);
         }
-
+    
         return availableTimes.map(([start, end]) => {
             return `${minutesToTime(start)}-${minutesToTime(end)}`;
         });
     };
+    
+    
 
     const updateFirebaseWithFreeTimes = async (freeTimes) => {
         try {
