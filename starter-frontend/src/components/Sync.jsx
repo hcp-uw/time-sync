@@ -95,8 +95,9 @@ function Sync() {
 
     function generateMeter() {
         const parent = id("availability-meter")
-        const r = qs(":root");
-        r.style.setProperty('--maxSync', data.length);
+        // const r = qs(":root");
+        // r.style.setProperty('--maxSync', data.length);
+        document.documentElement.style.setProperty('--maxSync', data.length);
         for (let i = 1; i < data.length; i++) {
             let unit = gen("div");
             unit.classList.add("event");
