@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/time-sync/static/css/main.e9da8d19.css",
+    "main.js": "/time-sync/static/js/main.7a5ece95.js",
+    "static/media/outlookCalender.png": "/time-sync/static/media/outlookCalender.1e33a2182e76c601f87a.png",
+    "static/media/googleCalender.png": "/time-sync/static/media/googleCalender.732d8d255ca6143cc095.png",
+    "static/media/freeUser.png": "/time-sync/static/media/freeUser.b2f5233732c5b1ddd40d.png",
+    "static/media/busyUser.png": "/time-sync/static/media/busyUser.e2da416077d422d3857c.png",
+    "static/media/ee.svg": "/time-sync/static/media/ee.edf5629f512c0c549c0ecce97e92c06a.svg",
+    "static/media/Green blob.png": "/time-sync/static/media/Green blob.476497494d549b55e2a6.png",
+    "static/media/Purple blob.png": "/time-sync/static/media/Purple blob.9e438588d919120ecea5.png",
+    "static/media/Green blob 2.png": "/time-sync/static/media/Green blob 2.d3e4e01751a6c826a7e8.png",
+    "static/media/Purple blob 3.png": "/time-sync/static/media/Purple blob 3.42381b0b9989db021140.png",
+    "static/media/Purple blob 2.png": "/time-sync/static/media/Purple blob 2.df3a9cb3699842bb95d6.png",
+    "index.html": "/time-sync/index.html",
+    "main.e9da8d19.css.map": "/time-sync/static/css/main.e9da8d19.css.map",
+    "main.7a5ece95.js.map": "/time-sync/static/js/main.7a5ece95.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e9da8d19.css",
+    "static/js/main.7a5ece95.js"
+  ]
+}
