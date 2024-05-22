@@ -108,7 +108,7 @@ function Sync() {
     }
 
     function updateUserStatus(freeUsers) {
-        qsa("#syncd-up > div").forEach(userProfile => {
+        qsa("#syncd-users > div").forEach(userProfile => {
             if (freeUsers.includes(userProfile.id)){
                 userProfile.classList.remove("busy");
                 userProfile.querySelector("img").src = freeUser;
@@ -122,7 +122,7 @@ function Sync() {
     }
 
     function generateUserProfile(username) {
-        let parent = id("syncd-up");
+        let parent = id("syncd-users");
         let userProfile = gen("div");
         let statusImg = gen("img");
         let userDetails = gen("div");
@@ -269,6 +269,8 @@ function Sync() {
                 </section>
                 <section id="syncd-up">
                     <h1>Sync'd Up!</h1>
+                    <div id="syncd-users"></div>
+                    <div id="user-spacer"></div>
                 </section>
             </div>
             <img class="blob1" src={blob1}/>

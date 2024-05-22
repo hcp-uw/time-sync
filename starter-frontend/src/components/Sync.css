@@ -1,5 +1,5 @@
 :root {
-  --maxSync: 4;
+  --maxSync: 3;
   --meterHeight: 70%;
   --calendarWidth: 55%;
   --numDays: 1;
@@ -53,7 +53,8 @@
   border-top: none;
   width: 40px;
   display: grid;
-  grid-template-rows: repeat(calc(var(--maxSync) + 1), calc(var(--meterHeight) / (var(--maxSync)+1)));
+  grid-template-rows: repeat(calc(var(--maxSync)), calc(100% / var(--maxSync)));
+  /* (var(--maxSync)+1) */
   border-radius: 5px;
   background-color: var(--calBgColor);
   margin: 5% 0;
@@ -201,13 +202,20 @@
 
 #syncd-up {
   border-left: 1px solid rgba(0, 0, 0, 0.1);
-  overflow-y: auto;
+  overflow-y: scroll;
 }
 
 #syncd-up h1 {
   font-size: 30px;
   font-family: "Quattrocento Sans", sans-serif;
   text-decoration: underline;
+}
+
+#syncd-users {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: scroll;
 }
 
 .user {
@@ -248,6 +256,13 @@
   text-indent: .2em;
   margin: 0;
   padding: 0;
+}
+
+#user-spacer {
+  height: calc(var(--maxSync) * 2vh);
+  width: 100%;
+  background-color: red;
+  visibility: hidden;
 }
 
 #sync-page-wrapper {
