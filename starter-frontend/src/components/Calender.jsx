@@ -192,8 +192,6 @@ function Calender() {
         });
     };
 
-
-
     const updateFirebaseWithFreeTimes = async (freeTimes) => {
         try {
             // const docRef = doc(db, '20001', 'Vic');
@@ -220,7 +218,7 @@ function Calender() {
             {/* Div for overall centered box */}
             <div class="container">
                 {/* Title */}
-                <h2 class="sync_title"> Let's Calender dis hoe up in here!</h2>
+                {/*<h2 class="sync_title"> Let's Calender dis hoe up in here!</h2>*/}
 
                 {/* Conditional for joining sync */}
                 {console.log("showCreate: " + showCreate)}
