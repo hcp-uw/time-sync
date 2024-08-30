@@ -165,6 +165,10 @@ function Calender() {
             return Math.ceil(minutes / 15) * 15;
         };
 
+        const roundDownToNearest15 = (minutes) => {
+            return Math.floor(minutes / 15) * 15;
+        };      
+
         const eventMinutes = eventTimes.flatMap(event => {
             const [start, end] = event.split('-').map(t => timeToMinutes(t.replace("pm", "")));
             return [[start, end]];
@@ -176,7 +180,7 @@ function Calender() {
         let currentTime = fullDayStart;
 
         for (let [start, end] of eventMinutes) {
-            start = roundUpToNearest15(start);  // Ensure free time starts after the rounded start time
+            start = roundDownToNearest15(start);  // Ensure free time starts after the rounded start time
             if (currentTime < start) {
                 availableTimes.push([currentTime, start]);
             }
