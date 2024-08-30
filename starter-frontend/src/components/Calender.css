@@ -16,6 +16,7 @@
     justify-content: center; /* Center horizontally */
     text-align: center;
     align-items: center;
+    position: relative;
   }
 
   .calender_generate_box {
@@ -27,6 +28,7 @@
     justify-content: center; /* Center horizontally */
     text-align: center;
     align-items: center;
+    position: relative; /* Add this */
   }
 
   .calender_generate_box h2 {
@@ -72,6 +74,17 @@
     text-decoration: none;
   }
 
+  .helper_icon {
+    position: absolute; /* Add this */
+    top: 10px; /* Adjust this value as needed */
+    right: 10px; /* Adjust this value as needed */
+  }
+
+  .helper_gif {
+    position: absolute;
+    right: 50px;
+  }
+
   /* Defines the size of the logo for the join and create images*/
   .calenderImage {
     width: 80px;
@@ -114,6 +127,10 @@
     background-color: #8C33FF;
     height: calc(100vh);
     overflow: hidden;
+  }
+
+  .hidden {
+    display: none;
   }
 /*
   .blob1 {
