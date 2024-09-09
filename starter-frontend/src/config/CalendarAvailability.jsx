@@ -11,7 +11,7 @@ import { db } from "../config/firebase.js";
 const CalendarAvailability = ({}) => {
     const [freeTimes, setFreeTimes] = useState([]);
     const [calendarLink, setCalendarLink] = useState('');
-    const apiKey = 'AIzaSyCFivIUfU4Hi4eepo2z5etJkpHvgdEnh6s';
+    const apiKey = process.env.REACT_APP_GOOGLE_CALENDAR_API_KEY;
 
     useEffect(() => {
         const fetchData = async () => {

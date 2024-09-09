@@ -5,8 +5,8 @@ const axios = require('axios');
 
 async function findFreeTime(calendarLink) {
 
-    const apiKey = 'AIzaSyCFivIUfU4Hi4eepo2z5etJkpHvgdEnh6s';
-
+    const apiKey = process.env.REACT_APP_GOOGLE_CALENDAR_API_KEY;
+    
     // Function to extract the calendar ID from a Google Calendar link
     function extractCalendarId(calendarLink) {
         const regex = /src=([^&]+)/;
