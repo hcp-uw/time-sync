@@ -5,17 +5,10 @@ import 'firebase/compat/firestore';
 import { db } from "./firebase";
 
 
-// Initialize Firebase (make sure you have already initialized Firebase in your app)
-// const firebaseConfig = {
-//   apiKey: "AIzaSyA9kKYERQlumTvH3pPFonAYBLEPX5SWxOw",
-//   authDomain: "timesync-7171d.firebaseapp.com",
-//   databaseURL: "https://timesync-7171d-default-rtdb.firebaseio.com",
-//   projectId: "timesync-7171d",
-//   storageBucket: "timesync-7171d.appspot.com",
-//   messagingSenderId: "909312169478",
-//   appId: "1:909312169478:web:271ce2a5e3f210ddd71587",
-//   measurementId: "G-H1Q8Z22P9N"
-// };
+// Initialize Firebase (make sure Firebase configuration is loaded from environment variables in the .env file)
+// Firebase configuration values such as apiKey, authDomain, and others should be stored in the .env file for security.
+// Example: REACT_APP_FIREBASE_API_KEY, REACT_APP_FIREBASE_AUTH_DOMAIN, etc.
+
 const data = {
   name: 'Los Angeles',
   state: 'CA',

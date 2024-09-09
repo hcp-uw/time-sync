@@ -66,7 +66,7 @@ function Calender() {
 
     // HERE IS ALL THE API/BACKEND CODE FOR FETCHING CALENDAR DATA
     // DIVIDER DIVIDER REMEMBER BACKEND
-    const apiKey = 'AIzaSyCFivIUfU4Hi4eepo2z5etJkpHvgdEnh6s';
+    const apiKey = process.env.REACT_APP_GOOGLE_CALENDAR_API_KEY;
     const uploadCalendarData = async () => {
         const calendarId = extractCalendarId(email);
         if (calendarId) {
