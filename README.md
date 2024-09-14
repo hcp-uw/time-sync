@@ -1,3 +1,2 @@
-timesync-7171d.firebaseapp.com
-
-timesync-7171d.web.app.
+Live website hosted at: 
+https://time-sync-uw.vercel.app/
